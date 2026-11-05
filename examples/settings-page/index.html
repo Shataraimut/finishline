@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#F4F2EB">
+  <title>Workspace settings — Meridian</title>
+  <meta name="description" content="Manage workspace details, access controls, notifications, and API tokens in Meridian.">
+  <link rel="icon" href="../shared/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../shared/fonts/ibm-plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../shared/fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../shared/meridian.css">
+  <link rel="stylesheet" href="settings.css">
+  <script defer src="../shared/meridian.js"></script>
+  <script defer src="settings.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to settings content</a>
+
+  <div class="app">
+    <aside class="sidebar" id="sidebar" data-sidebar aria-label="Primary navigation">
+      <a class="brand" href="../dashboard/" aria-label="Meridian overview">
+        <span class="brand-mark" aria-hidden="true">M</span>
+        <span>
+          <span class="brand-word">meridian</span>
+          <span class="brand-sub">API operations</span>
+        </span>
+      </a>
+
+      <p class="side-label">Observe</p>
+      <nav class="side-nav" aria-label="Observe">
+        <a class="side-link" href="../dashboard/">
+          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13h5l2-7 3 12 2-5h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/></svg>
+          Overview
+        </a>
+        <a class="side-link" href="../dashboard/#requests">
+          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 6h14M5 12h14M5 18h9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          Recent requests
+        </a>
+      </nav>
+
+      <p class="side-label">Manage</p>
+      <nav class="side-nav" aria-label="Manage">
+        <a class="side-link" href="../settings-page/" aria-current="page">
+          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+          Workspace settings
+        </a>
+        <a class="side-link" href="#tokens">
+          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="12" r="3.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11.5 12H21M17 12v3M20 12v3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          API keys
+        </a>
+      </nav>
+
+      <div class="sidebar-foot">
+        <div class="workspace-card">
+          <p class="workspace-card-label">Workspace</p>
+          <p class="workspace-card-name">Northstar Labs</p>
+          <p class="workspace-card-plan">Production · Scale plan</p>
+        </div>
+        <div class="user-row">
+          <span class="avatar" aria-hidden="true">MK</span>
+          <span class="user-meta">
+            <span class="user-name">Mara Kade</span>
+            <span class="user-email">ops@meridian.dev</span>
+          </span>
+          <a class="signout" href="../login-page/" aria-label="Sign out of the demo">Exit</a>
+        </div>
+      </div>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <div class="topbar-start">
+          <button class="shell-toggle" type="button" data-shell-toggle aria-controls="sidebar" aria-expanded="false">
+            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+            <span class="sr-only">Open navigation</span>
+          </button>
+          <p class="crumb">Northstar Labs <span class="crumb-sep">/</span> <strong>Settings</strong></p>
+        </div>
+        <div class="topbar-end">
+          <span class="demo-chip">Demo data</span>
+          <a class="topbar-link" href="../dashboard/">Overview</a>
+        </div>
+      </header>
+
+      <main class="content" id="main">
+        <div class="page-head">
+          <div>
+            <p class="eyebrow">Workspace settings</p>
+            <h1 class="page-title" id="settings-title">Northstar Labs</h1>
+            <p class="page-lede">Manage the operating details for this workspace. Changes are simulated locally; no settings leave this page.</p>
+          </div>
+          <div class="page-actions">
+            <a class="button is-quiet" href="../dashboard/">Back to overview</a>
+          </div>
+        </div>
+
+        <div class="settings-layout">
+          <nav class="settings-nav" aria-label="Settings sections">
+            <p class="settings-nav-label">On this page</p>
+            <a href="#general" class="is-active">General</a>
+            <a href="#access">Access</a>
+            <a href="#notifications">Notifications</a>
+            <a href="#tokens">API token</a>
+            <a href="#danger">Danger zone</a>
+          </nav>
+
+          <form class="settings-form" id="settings-form" novalidate>
+            <section class="settings-section" id="general" aria-labelledby="general-title">
+              <div class="settings-section-head">
+                <h2 id="general-title">General</h2>
+                <p>How this workspace appears to teammates and in exports.</p>
+              </div>
+              <div class="settings-panel">
+                <div class="form-grid">
+                  <div class="field">
+                    <label for="workspace-name">Workspace name</label>
+                    <input class="input" id="workspace-name" name="workspace-name" type="text" value="Northstar Labs" autocomplete="organization" required aria-describedby="workspace-name-error">
+                    <p class="field-error" id="workspace-name-error" hidden></p>
+                  </div>
+                  <div class="field">
+                    <label for="workspace-slug">Workspace slug</label>
+                    <input class="input" id="workspace-slug" name="workspace-slug" type="text" value="northstar-labs" readonly data-ignore-dirty>
+                    <p class="field-hint">Used in dashboard URLs. Contact support to change it.</p>
+                  </div>
+                  <div class="field">
+                    <label for="workspace-region">Primary region</label>
+                    <select class="select" id="workspace-region" name="workspace-region">
+                      <option value="us-east" selected>US East (Virginia)</option>
+                      <option value="eu-central">EU Central (Frankfurt)</option>
+                      <option value="us-west">US West (Oregon)</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="workspace-timezone">Reporting timezone</label>
+                    <select class="select" id="workspace-timezone" name="workspace-timezone">
+                      <option value="utc" selected>UTC</option>
+                      <option value="america-new-york">America / New York</option>
+                      <option value="europe-berlin">Europe / Berlin</option>
+                      <option value="asia-tokyo">Asia / Tokyo</option>
+                    </select>
+                  </div>
+                  <div class="field is-wide">
+                    <div class="field-label-row">
+                      <label for="support-email">Operations contact</label>
+                      <span class="mono-note">Used for incident notices</span>
+                    </div>
+                    <input class="input" id="support-email" name="support-email" type="email" inputmode="email" value="ops@meridian.dev" autocomplete="email" required aria-describedby="support-email-hint support-email-error">
+                    <p class="field-hint" id="support-email-hint">We send service-impact notices here. It is never shown to API consumers.</p>
+                    <p class="field-error" id="support-email-error" hidden></p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="settings-section" id="access" aria-labelledby="access-title">
+              <div class="settings-section-head">
+                <h2 id="access-title">Access</h2>
+                <p>Practical guardrails for everyone using this workspace.</p>
+              </div>
+              <div class="settings-panel">
+                <div class="setting-row">
+                  <div class="setting-row-copy">
+                    <p class="setting-row-title" id="sso-label">Require single sign-on</p>
+                    <p class="setting-row-desc" id="sso-desc">Members must authenticate through Okta before using the console or API keys.</p>
+                  </div>
+                  <label class="switch">
+                    <input id="require-sso" name="require-sso" class="switch-input" type="checkbox" role="switch" checked aria-labelledby="sso-label" aria-describedby="sso-desc">
+                    <span class="switch-track" aria-hidden="true"></span>
+                    <span class="switch-state" aria-hidden="true">On</span>
+                  </label>
+                </div>
+                <div class="setting-row">
+                  <div class="setting-row-copy">
+                    <p class="setting-row-title" id="twofa-label">Enforce two-factor authentication</p>
+                    <p class="setting-row-desc" id="twofa-desc">Applies to password-based sessions only. SSO members follow your identity provider's policy.</p>
+                  </div>
+                  <label class="switch">
+                    <input id="enforce-2fa" name="enforce-2fa" class="switch-input" type="checkbox" role="switch" checked aria-labelledby="twofa-label" aria-describedby="twofa-desc">
+                    <span class="switch-track" aria-hidden="true"></span>
+                    <span class="switch-state" aria-hidden="true">On</span>
+                  </label>
+                </div>
+                <div class="setting-row">
+                  <div class="setting-row-copy">
+                    <p class="setting-row-title" id="ip-label">Restrict console access by IP</p>
+                    <p class="setting-row-desc" id="ip-desc">Only allow requests from approved office ranges. API traffic is unaffected.</p>
+                  </div>
+                  <label class="switch">
+                    <input id="restrict-ip" name="restrict-ip" class="switch-input" type="checkbox" role="switch" aria-labelledby="ip-label" aria-describedby="ip-desc">
+                    <span class="switch-track" aria-hidden="true"></span>
+                    <span class="switch-state" aria-hidden="true">Off</span>
+                  </label>
+                </div>
+              </div>
+            </section>
+
+            <section class="settings-section" id="notifications" aria-labelledby="notifications-title">
+              <div class="settings-section-head">
+                <h2 id="notifications-title">Notifications</h2>
+                <p>Choose what is worth interrupting the on-call rotation for.</p>
+              </div>
+              <div class="settings-panel">
+                <div class="setting-row">
+                  <div class="setting-row-copy">
+                    <p class="setting-row-title" id="incident-label">Incident email</p>
+                    <p class="setting-row-desc" id="incident-desc">Notify the operations contact when error rate or p95 latency breaches its target for five minutes.</p>
+                  </div>
+                  <label class="switch">
+                    <input id="incident-email" name="incident-email" class="switch-input" type="checkbox" role="switch" checked aria-labelledby="incident-label" aria-describedby="incident-desc">
+                    <span class="switch-track" aria-hidden="true"></span>
+                    <span class="switch-state" aria-hidden="true">On</span>
+                  </label>
+                </div>
+                <div class="setting-row">
+                  <div class="setting-row-copy">
+                    <p class="setting-row-title" id="digest-label">Weekly digest</p>
+                    <p class="setting-row-desc" id="digest-desc">A Monday summary of traffic, deploy events, and resolved incidents.</p>
+                  </div>
+                  <label class="switch">
+                    <input id="weekly-digest" name="weekly-digest" class="switch-input" type="checkbox" role="switch" aria-labelledby="digest-label" aria-describedby="digest-desc">
+                    <span class="switch-track" aria-hidden="true"></span>
+                    <span class="switch-state" aria-hidden="true">Off</span>
+                  </label>
+                </div>
+                <div class="setting-row">
+                  <div class="setting-row-copy">
+                    <p class="setting-row-title" id="webhook-label">Webhook failure alerts</p>
+                    <p class="setting-row-desc" id="webhook-desc">Post to the on-call channel after three consecutive failed deliveries.</p>
+                  </div>
+                  <label class="switch">
+                    <input id="webhook-alerts" name="webhook-alerts" class="switch-input" type="checkbox" role="switch" checked aria-labelledby="webhook-label" aria-describedby="webhook-desc">
+                    <span class="switch-track" aria-hidden="true"></span>
+                    <span class="switch-state" aria-hidden="true">On</span>
+                  </label>
+                </div>
+              </div>
+            </section>
+
+            <section class="settings-section" id="tokens" aria-labelledby="tokens-title">
+              <div class="settings-section-head">
+                <h2 id="tokens-title">API token</h2>
+                <p>The server-side credential used by this workspace's production integration.</p>
+              </div>
+              <div class="settings-panel">
+                <div class="field">
+                  <div class="field-label-row">
+                    <label for="api-token">Production token</label>
+                    <span class="mono-note" id="token-status">Active</span>
+                  </div>
+                  <div class="token-box">
+                    <input class="input" id="api-token" name="api-token" type="text" value="mrd_live_••••••••••••••••••••••••" readonly data-ignore-dirty aria-describedby="token-meta">
+                    <button class="button is-quiet is-small" id="reveal-token" type="button" aria-pressed="false">Reveal</button>
+                    <button class="button is-quiet is-small" id="copy-token" type="button">Copy</button>
+                    <button class="button is-small" id="rotate-token" type="button" data-open-dialog="rotate-dialog">Rotate</button>
+                  </div>
+                  <div class="token-meta" id="token-meta">
+                    <span>Created 12 Aug 2026</span>
+                    <span>Last used 2 min ago</span>
+                    <span>Scope: read + write</span>
+                  </div>
+                </div>
+                <div class="inline-note security-note">
+                  <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 10V7a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+                  <span>Treat this value like a password. Rotating it immediately invalidates the previous token after a 24-hour overlap.</span>
+                </div>
+              </div>
+            </section>
+
+            <section class="settings-section" id="danger" aria-labelledby="danger-title">
+              <div class="settings-section-head">
+                <h2 id="danger-title">Danger zone</h2>
+                <p>Irreversible actions. Take a moment before continuing.</p>
+              </div>
+              <div class="settings-panel danger-panel">
+                <div class="danger-row">
+                  <div>
+                    <h3>Delete this workspace</h3>
+                    <p>Deletes the workspace, all API tokens, and 90 days of request rollups. This cannot be undone.</p>
+                  </div>
+                  <button class="button is-danger" id="delete-workspace" type="button" data-open-dialog="delete-dialog">Delete workspace</button>
+                </div>
+              </div>
+            </section>
+
+            <div class="savebar" id="savebar" hidden>
+              <p class="savebar-status" id="savebar-status" aria-live="polite">Unsaved changes</p>
+              <div class="savebar-actions">
+                <button class="button is-quiet" id="discard-changes" type="button">Discard</button>
+                <button class="button" id="save-changes" type="submit">Save changes</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <dialog class="dialog" id="rotate-dialog" aria-labelledby="rotate-title">
+    <div class="dialog-head">
+      <div>
+        <p class="eyebrow">Credential rotation</p>
+        <h2 id="rotate-title">Rotate production token?</h2>
+      </div>
+      <button class="icon-button" type="button" data-close-dialog aria-label="Close rotate token dialog">
+        <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.7"/></svg>
+      </button>
+    </div>
+    <div class="dialog-body">
+      <p class="dialog-lede">A new token will be generated. The current token remains valid for 24 hours, then stops working immediately.</p>
+      <p class="dialog-warning">Update every service that uses this token before the overlap window closes. Requests using the old token after that point will fail with 401.</p>
+      <div class="dialog-actions">
+        <button class="button is-quiet" type="button" data-close-dialog>Cancel</button>
+        <button class="button" id="rotate-confirm" type="button">Generate new token</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog class="dialog" id="delete-dialog" aria-labelledby="delete-title">
+    <div class="dialog-head">
+      <div>
+        <p class="eyebrow">Irreversible action</p>
+        <h2 id="delete-title">Delete <span id="delete-target-title">Northstar Labs</span>?</h2>
+      </div>
+      <button class="icon-button" type="button" data-close-dialog aria-label="Close delete workspace dialog">
+        <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.7"/></svg>
+      </button>
+    </div>
+    <div class="dialog-body">
+      <p class="dialog-lede">This deletes the workspace, revokes every API token, and removes 90 days of request rollups. It cannot be undone.</p>
+      <p class="dialog-warning">All production integrations for Northstar Labs will stop receiving responses.</p>
+      <div class="field confirm-field">
+        <label for="delete-confirm">Type <strong id="delete-target-label">Northstar Labs</strong> to continue</label>
+        <input class="input" id="delete-confirm" name="delete-confirm" type="text" autocomplete="off" spellcheck="false" aria-describedby="delete-confirm-error">
+        <p class="field-error" id="delete-confirm-error" hidden></p>
+      </div>
+      <div class="dialog-actions">
+        <button class="button is-quiet" type="button" data-close-dialog>Keep workspace</button>
+        <button class="button is-danger" id="delete-confirm-button" type="button" disabled>Delete workspace</button>
+      </div>
+    </div>
+  </dialog>
+
+  <div class="sidebar-backdrop" data-shell-backdrop></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="sr-region" id="announcer" aria-live="polite"></div>
+</body>
+</html>

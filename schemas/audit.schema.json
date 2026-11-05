@@ -1,0 +1,260 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Shataraimut/finishline/schemas/audit.schema.json",
+  "title": "FINISHLINE Audit",
+  "description": "Machine-readable output of the FINISHLINE static UI/UX audit.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "generator",
+    "project",
+    "generated_at",
+    "summary",
+    "design_system",
+    "components",
+    "findings",
+    "verification"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "generator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "version", "mode"],
+      "properties": {
+        "name": { "const": "finishline" },
+        "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+        "mode": { "enum": ["static", "rendered"] }
+      }
+    },
+    "project": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "root", "stack", "files_scanned", "lines_scanned", "bytes_scanned", "skipped_files"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "root": { "type": "string" },
+        "stack": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "files_scanned": { "type": "integer", "minimum": 0 },
+        "lines_scanned": { "type": "integer", "minimum": 0 },
+        "bytes_scanned": { "type": "integer", "minimum": 0 },
+        "skipped_files": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["path", "reason"],
+            "properties": {
+              "path": { "type": "string" },
+              "reason": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["readiness", "readiness_reason", "findings", "confidence", "components"],
+      "properties": {
+        "readiness": {
+          "enum": ["ready", "needs-polish", "at-risk", "blocked", "insufficient-evidence"]
+        },
+        "readiness_reason": { "type": "string" },
+        "findings": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["total", "critical", "high", "medium", "low"],
+          "properties": {
+            "total": { "type": "integer", "minimum": 0 },
+            "critical": { "type": "integer", "minimum": 0 },
+            "high": { "type": "integer", "minimum": 0 },
+            "medium": { "type": "integer", "minimum": 0 },
+            "low": { "type": "integer", "minimum": 0 }
+          }
+        },
+        "confidence": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["verified", "inferred"],
+          "properties": {
+            "verified": { "type": "integer", "minimum": 0 },
+            "inferred": { "type": "integer", "minimum": 0 }
+          }
+        },
+        "components": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["total", "complete", "partial", "missing", "state_coverage", "by_kind"],
+          "properties": {
+            "total": { "type": "integer", "minimum": 0 },
+            "complete": { "type": "integer", "minimum": 0 },
+            "partial": { "type": "integer", "minimum": 0 },
+            "missing": { "type": "integer", "minimum": 0 },
+            "state_coverage": { "type": "integer", "minimum": 0, "maximum": 100 },
+            "by_kind": {
+              "type": "object",
+              "additionalProperties": { "type": "integer", "minimum": 0 }
+            }
+          }
+        }
+      }
+    },
+    "design_system": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "colors",
+        "fonts",
+        "font_sizes",
+        "spacing",
+        "radii",
+        "shadows",
+        "custom_properties",
+        "literals_vs_tokens",
+        "notes"
+      ],
+      "properties": {
+        "colors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["value", "count", "role"],
+            "properties": {
+              "value": { "type": "string", "pattern": "^#[0-9A-F]{6}$" },
+              "count": { "type": "integer", "minimum": 1 },
+              "role": { "type": "string" }
+            }
+          }
+        },
+        "fonts": { "$ref": "#/$defs/valueCountList" },
+        "font_sizes": { "$ref": "#/$defs/valueCountList" },
+        "spacing": { "$ref": "#/$defs/valueCountList" },
+        "radii": { "$ref": "#/$defs/valueCountList" },
+        "shadows": { "$ref": "#/$defs/valueCountList" },
+        "custom_properties": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name", "value"],
+            "properties": {
+              "name": { "type": "string", "pattern": "^--[a-zA-Z0-9_-]+$" },
+              "value": { "type": "string" }
+            }
+          }
+        },
+        "literals_vs_tokens": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["colour_literals", "token_references"],
+          "properties": {
+            "colour_literals": { "type": "integer", "minimum": 0 },
+            "token_references": { "type": "integer", "minimum": 0 }
+          }
+        },
+        "notes": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "components": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "kind", "name", "file", "line", "status", "coverage", "element", "states"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^C-[0-9]{3,4}$" },
+          "kind": { "type": "string", "minLength": 1 },
+          "name": { "type": "string", "minLength": 1 },
+          "file": { "type": "string", "minLength": 1 },
+          "line": { "type": "integer", "minimum": 1 },
+          "status": { "enum": ["complete", "partial", "missing"] },
+          "coverage": { "type": "integer", "minimum": 0, "maximum": 100 },
+          "element": { "type": "string" },
+          "states": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["name", "status", "evidence", "confidence"],
+              "properties": {
+                "name": { "type": "string", "minLength": 1 },
+                "status": { "enum": ["complete", "partial", "missing", "n/a"] },
+                "evidence": { "type": "string" },
+                "confidence": { "enum": ["verified", "inferred"] }
+              }
+            }
+          }
+        }
+      }
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "check",
+          "category",
+          "title",
+          "severity",
+          "file",
+          "line",
+          "evidence",
+          "why",
+          "repair",
+          "confidence",
+          "component",
+          "status"
+        ],
+        "properties": {
+          "id": { "type": "string", "pattern": "^FL-[0-9]{4}$" },
+          "check": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*\\.[a-z0-9]+(?:-[a-z0-9]+)*$" },
+          "category": { "type": "string", "minLength": 1 },
+          "title": { "type": "string", "minLength": 1 },
+          "severity": { "enum": ["critical", "high", "medium", "low"] },
+          "file": { "type": "string", "minLength": 1 },
+          "line": { "type": "integer", "minimum": 1 },
+          "evidence": { "type": "string" },
+          "why": { "type": "string", "minLength": 1 },
+          "repair": { "type": "string", "minLength": 1 },
+          "confidence": { "enum": ["verified", "inferred"] },
+          "component": { "type": ["string", "null"] },
+          "status": { "enum": ["open", "fixed", "ignored"] }
+        }
+      }
+    },
+    "verification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "rendered", "checks_run", "check_count", "screenshots", "limitations"],
+      "properties": {
+        "mode": { "enum": ["static", "rendered"] },
+        "rendered": { "type": "boolean" },
+        "checks_run": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "check_count": { "type": "integer", "minimum": 1 },
+        "screenshots": { "type": "integer", "minimum": 0 },
+        "limitations": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+      }
+    }
+  },
+  "$defs": {
+    "valueCountList": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["value", "count"],
+        "properties": {
+          "value": { "type": "string" },
+          "count": { "type": "integer", "minimum": 1 }
+        }
+      }
+    }
+  }
+}

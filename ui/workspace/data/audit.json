@@ -1,0 +1,1609 @@
+{
+  "schema_version": "1.0",
+  "generator": {
+    "name": "finishline",
+    "version": "1.0.0",
+    "mode": "static"
+  },
+  "project": {
+    "name": "defective-ui",
+    "root": ".",
+    "stack": [
+      "html",
+      "css",
+      "javascript"
+    ],
+    "files_scanned": 3,
+    "lines_scanned": 348,
+    "bytes_scanned": 11914,
+    "skipped_files": []
+  },
+  "generated_at": "2026-11-04T09:54:57+00:00",
+  "summary": {
+    "readiness": "blocked",
+    "readiness_reason": "3 critical finding(s) break core flows.",
+    "findings": {
+      "total": 32,
+      "critical": 3,
+      "high": 10,
+      "medium": 7,
+      "low": 12
+    },
+    "confidence": {
+      "verified": 12,
+      "inferred": 20
+    },
+    "components": {
+      "total": 14,
+      "complete": 0,
+      "partial": 7,
+      "missing": 7,
+      "state_coverage": 46,
+      "by_kind": {
+        "button": 6,
+        "form": 1,
+        "input": 3,
+        "toggle": 2,
+        "dropdown": 1,
+        "feedback": 1
+      }
+    }
+  },
+  "design_system": {
+    "colors": [
+      {
+        "value": "#5B5FD6",
+        "count": 3,
+        "role": "inferred"
+      },
+      {
+        "value": "#6366F1",
+        "count": 3,
+        "role": "inferred"
+      },
+      {
+        "value": "#FFFFFF",
+        "count": 3,
+        "role": "inferred"
+      },
+      {
+        "value": "#171A22",
+        "count": 2,
+        "role": "inferred"
+      },
+      {
+        "value": "#8B5CF6",
+        "count": 2,
+        "role": "inferred"
+      },
+      {
+        "value": "#C7C9FF",
+        "count": 2,
+        "role": "inferred"
+      },
+      {
+        "value": "#353B52",
+        "count": 1,
+        "role": "inferred"
+      },
+      {
+        "value": "#6B7182",
+        "count": 1,
+        "role": "inferred"
+      },
+      {
+        "value": "#7EE2A8",
+        "count": 1,
+        "role": "inferred"
+      },
+      {
+        "value": "#9B9EF5",
+        "count": 1,
+        "role": "inferred"
+      },
+      {
+        "value": "#A2A7B5",
+        "count": 1,
+        "role": "inferred"
+      },
+      {
+        "value": "#B42323",
+        "count": 1,
+        "role": "inferred"
+      },
+      {
+        "value": "#DDDDDD",
+        "count": 1,
+        "role": "inferred"
+      },
+      {
+        "value": "#E3E5EE",
+        "count": 1,
+        "role": "inferred"
+      },
+      {
+        "value": "#E4B4B4",
+        "count": 1,
+        "role": "inferred"
+      },
+      {
+        "value": "#F0D6D6",
+        "count": 1,
+        "role": "inferred"
+      },
+      {
+        "value": "#F0F1F6",
+        "count": 1,
+        "role": "inferred"
+      },
+      {
+        "value": "#F2F3F8",
+        "count": 1,
+        "role": "inferred"
+      },
+      {
+        "value": "#F4F4FA",
+        "count": 1,
+        "role": "inferred"
+      },
+      {
+        "value": "#F6F7FB",
+        "count": 1,
+        "role": "inferred"
+      },
+      {
+        "value": "#FBFBFD",
+        "count": 1,
+        "role": "inferred"
+      },
+      {
+        "value": "#FFFAFA",
+        "count": 1,
+        "role": "inferred"
+      }
+    ],
+    "fonts": [
+      {
+        "value": "Inter",
+        "count": 1
+      }
+    ],
+    "font_sizes": [
+      {
+        "value": "12px",
+        "count": 5
+      },
+      {
+        "value": "13px",
+        "count": 5
+      },
+      {
+        "value": "14px",
+        "count": 2
+      },
+      {
+        "value": "11px",
+        "count": 1
+      },
+      {
+        "value": "15px",
+        "count": 1
+      },
+      {
+        "value": "18px",
+        "count": 1
+      },
+      {
+        "value": "36px",
+        "count": 1
+      }
+    ],
+    "spacing": [
+      {
+        "value": "10px",
+        "count": 5
+      },
+      {
+        "value": "22px",
+        "count": 5
+      },
+      {
+        "value": "8px",
+        "count": 5
+      },
+      {
+        "value": "28px",
+        "count": 4
+      },
+      {
+        "value": "3px",
+        "count": 4
+      },
+      {
+        "value": "14px",
+        "count": 3
+      },
+      {
+        "value": "20px",
+        "count": 3
+      },
+      {
+        "value": "11px",
+        "count": 2
+      },
+      {
+        "value": "12px",
+        "count": 2
+      },
+      {
+        "value": "24px",
+        "count": 2
+      },
+      {
+        "value": "26px",
+        "count": 2
+      },
+      {
+        "value": "2px",
+        "count": 2
+      },
+      {
+        "value": "48px",
+        "count": 2
+      },
+      {
+        "value": "6px",
+        "count": 2
+      },
+      {
+        "value": "80px",
+        "count": 2
+      },
+      {
+        "value": "15px",
+        "count": 1
+      },
+      {
+        "value": "16px",
+        "count": 1
+      },
+      {
+        "value": "17px",
+        "count": 1
+      },
+      {
+        "value": "32px",
+        "count": 1
+      },
+      {
+        "value": "42px",
+        "count": 1
+      },
+      {
+        "value": "4px",
+        "count": 1
+      },
+      {
+        "value": "5px",
+        "count": 1
+      },
+      {
+        "value": "7px",
+        "count": 1
+      },
+      {
+        "value": "96px",
+        "count": 1
+      },
+      {
+        "value": "9px",
+        "count": 1
+      }
+    ],
+    "radii": [
+      {
+        "value": "10px",
+        "count": 4
+      },
+      {
+        "value": "50%",
+        "count": 3
+      },
+      {
+        "value": "8px",
+        "count": 2
+      },
+      {
+        "value": "4px",
+        "count": 1
+      },
+      {
+        "value": "6px",
+        "count": 1
+      },
+      {
+        "value": "999px",
+        "count": 1
+      },
+      {
+        "value": "9px",
+        "count": 1
+      }
+    ],
+    "shadows": [
+      {
+        "value": "0 18px 45px rgba(27, 31, 59, 0.06)",
+        "count": 1
+      }
+    ],
+    "custom_properties": [
+      {
+        "name": "--accent",
+        "value": "#6366f1"
+      },
+      {
+        "name": "--ink",
+        "value": "#171a22"
+      },
+      {
+        "name": "--line",
+        "value": "#e3e5ee"
+      },
+      {
+        "name": "--muted",
+        "value": "#6b7182"
+      },
+      {
+        "name": "--paper",
+        "value": "#f6f7fb"
+      },
+      {
+        "name": "--radius",
+        "value": "18px"
+      }
+    ],
+    "literals_vs_tokens": {
+      "colour_literals": 31,
+      "token_references": 19
+    },
+    "notes": [
+      "Colour literals outnumber CSS variable references; inspect token adoption."
+    ]
+  },
+  "components": [
+    {
+      "id": "C-001",
+      "kind": "button",
+      "name": "Button",
+      "file": "index.html",
+      "line": 13,
+      "status": "missing",
+      "coverage": 40,
+      "element": "<button class=\"icon-btn\" type=\"button\">",
+      "states": [
+        {
+          "name": "default",
+          "status": "complete",
+          "evidence": "element present",
+          "confidence": "verified"
+        },
+        {
+          "name": "hover",
+          "status": "missing",
+          "evidence": "no :hover styling found",
+          "confidence": "inferred"
+        },
+        {
+          "name": "active",
+          "status": "missing",
+          "evidence": "no :active styling found",
+          "confidence": "inferred"
+        },
+        {
+          "name": "focus",
+          "status": "partial",
+          "evidence": "only generic :focus styling",
+          "confidence": "inferred"
+        },
+        {
+          "name": "disabled",
+          "status": "partial",
+          "evidence": "project-level disabled styling only",
+          "confidence": "inferred"
+        },
+        {
+          "name": "loading",
+          "status": "n/a",
+          "evidence": "no async submit action",
+          "confidence": "inferred"
+        },
+        {
+          "name": "success",
+          "status": "n/a",
+          "evidence": "feedback belongs to the form or journey",
+          "confidence": "inferred"
+        }
+      ]
+    },
+    {
+      "id": "C-002",
+      "kind": "form",
+      "name": "settings-form",
+      "file": "index.html",
+      "line": 46,
+      "status": "missing",
+      "coverage": 25,
+      "element": "<form id=\"settings-form\">",
+      "states": [
+        {
+          "name": "validation",
+          "status": "missing",
+          "evidence": "form has no validation evidence",
+          "confidence": "inferred"
+        },
+        {
+          "name": "pending",
+          "status": "missing",
+          "evidence": "async submit without loading UI",
+          "confidence": "inferred"
+        },
+        {
+          "name": "success",
+          "status": "complete",
+          "evidence": "success feedback present",
+          "confidence": "inferred"
+        },
+        {
+          "name": "failure",
+          "status": "missing",
+          "evidence": "no failure feedback detected",
+          "confidence": "inferred"
+        }
+      ]
+    },
+    {
+      "id": "C-003",
+      "kind": "input",
+      "name": "Workspace name",
+      "file": "index.html",
+      "line": 49,
+      "status": "partial",
+      "coverage": 67,
+      "element": "<input id=\"workspace-name\" name=\"workspace\" value=\"Northstar Labs\">",
+      "states": [
+        {
+          "name": "default",
+          "status": "complete",
+          "evidence": "element present",
+          "confidence": "verified"
+        },
+        {
+          "name": "focus",
+          "status": "partial",
+          "evidence": "generic :focus styling only",
+          "confidence": "inferred"
+        },
+        {
+          "name": "filled",
+          "status": "n/a",
+          "evidence": "text remains legible without separate filled chrome",
+          "confidence": "inferred"
+        },
+        {
+          "name": "invalid",
+          "status": "n/a",
+          "evidence": "no validation requirement inferred",
+          "confidence": "inferred"
+        },
+        {
+          "name": "disabled",
+          "status": "partial",
+          "evidence": "project-level disabled styling only",
+          "confidence": "inferred"
+        },
+        {
+          "name": "readonly",
+          "status": "n/a",
+          "evidence": "readonly not used",
+          "confidence": "inferred"
+        },
+        {
+          "name": "loading",
+          "status": "n/a",
+          "evidence": "inputs are not submitted in place",
+          "confidence": "inferred"
+        }
+      ]
+    },
+    {
+      "id": "C-004",
+      "kind": "input",
+      "name": "email",
+      "file": "index.html",
+      "line": 53,
+      "status": "partial",
+      "coverage": 50,
+      "element": "<input type=\"email\" name=\"email\" value=\"ops@northstar.dev\">",
+      "states": [
+        {
+          "name": "default",
+          "status": "complete",
+          "evidence": "element present",
+          "confidence": "verified"
+        },
+        {
+          "name": "focus",
+          "status": "partial",
+          "evidence": "generic :focus styling only",
+          "confidence": "inferred"
+        },
+        {
+          "name": "filled",
+          "status": "n/a",
+          "evidence": "text remains legible without separate filled chrome",
+          "confidence": "inferred"
+        },
+        {
+          "name": "invalid",
+          "status": "missing",
+          "evidence": "validation exists without error styling",
+          "confidence": "inferred"
+        },
+        {
+          "name": "disabled",
+          "status": "partial",
+          "evidence": "project-level disabled styling only",
+          "confidence": "inferred"
+        },
+        {
+          "name": "readonly",
+          "status": "n/a",
+          "evidence": "readonly not used",
+          "confidence": "inferred"
+        },
+        {
+          "name": "loading",
+          "status": "n/a",
+          "evidence": "inputs are not submitted in place",
+          "confidence": "inferred"
+        }
+      ]
+    },
+    {
+      "id": "C-005",
+      "kind": "input",
+      "name": "api_token",
+      "file": "index.html",
+      "line": 58,
+      "status": "partial",
+      "coverage": 50,
+      "element": "<input type=\"password\" name=\"api_token\" value=\"mrd_live_84c1d0e8\">",
+      "states": [
+        {
+          "name": "default",
+          "status": "complete",
+          "evidence": "element present",
+          "confidence": "verified"
+        },
+        {
+          "name": "focus",
+          "status": "partial",
+          "evidence": "generic :focus styling only",
+          "confidence": "inferred"
+        },
+        {
+          "name": "filled",
+          "status": "n/a",
+          "evidence": "text remains legible without separate filled chrome",
+          "confidence": "inferred"
+        },
+        {
+          "name": "invalid",
+          "status": "missing",
+          "evidence": "validation exists without error styling",
+          "confidence": "inferred"
+        },
+        {
+          "name": "disabled",
+          "status": "partial",
+          "evidence": "project-level disabled styling only",
+          "confidence": "inferred"
+        },
+        {
+          "name": "readonly",
+          "status": "n/a",
+          "evidence": "readonly not used",
+          "confidence": "inferred"
+        },
+        {
+          "name": "loading",
+          "status": "n/a",
+          "evidence": "inputs are not submitted in place",
+          "confidence": "inferred"
+        }
+      ]
+    },
+    {
+      "id": "C-006",
+      "kind": "button",
+      "name": "Button",
+      "file": "index.html",
+      "line": 59,
+      "status": "missing",
+      "coverage": 40,
+      "element": "<button class=\"icon-btn\" type=\"button\">",
+      "states": [
+        {
+          "name": "default",
+          "status": "complete",
+          "evidence": "element present",
+          "confidence": "verified"
+        },
+        {
+          "name": "hover",
+          "status": "missing",
+          "evidence": "no :hover styling found",
+          "confidence": "inferred"
+        },
+        {
+          "name": "active",
+          "status": "missing",
+          "evidence": "no :active styling found",
+          "confidence": "inferred"
+        },
+        {
+          "name": "focus",
+          "status": "partial",
+          "evidence": "only generic :focus styling",
+          "confidence": "inferred"
+        },
+        {
+          "name": "disabled",
+          "status": "partial",
+          "evidence": "project-level disabled styling only",
+          "confidence": "inferred"
+        },
+        {
+          "name": "loading",
+          "status": "n/a",
+          "evidence": "no async submit action",
+          "confidence": "inferred"
+        },
+        {
+          "name": "success",
+          "status": "n/a",
+          "evidence": "feedback belongs to the form or journey",
+          "confidence": "inferred"
+        }
+      ]
+    },
+    {
+      "id": "C-007",
+      "kind": "toggle",
+      "name": "Email alerts",
+      "file": "index.html",
+      "line": 70,
+      "status": "partial",
+      "coverage": 70,
+      "element": "<div class=\"toggle\" role=\"switch\" aria-checked=\"true\" tabindex=\"0\" aria-label=\"Email alerts\">",
+      "states": [
+        {
+          "name": "off",
+          "status": "complete",
+          "evidence": ".toggle (styles.css:131)",
+          "confidence": "inferred"
+        },
+        {
+          "name": "on",
+          "status": "missing",
+          "evidence": "no checked/on rule found",
+          "confidence": "inferred"
+        },
+        {
+          "name": "focus",
+          "status": "complete",
+          "evidence": ".toggle:focus (styles.css:141)",
+          "confidence": "inferred"
+        },
+        {
+          "name": "disabled",
+          "status": "partial",
+          "evidence": "disabled attribute or generic styling only",
+          "confidence": "inferred"
+        },
+        {
+          "name": "transition",
+          "status": "complete",
+          "evidence": "transition present",
+          "confidence": "inferred"
+        }
+      ]
+    },
+    {
+      "id": "C-008",
+      "kind": "toggle",
+      "name": "Weekly usage digest",
+      "file": "index.html",
+      "line": 80,
+      "status": "partial",
+      "coverage": 70,
+      "element": "<div class=\"toggle\" role=\"switch\" aria-checked=\"false\" tabindex=\"0\" aria-label=\"Weekly usage digest\">",
+      "states": [
+        {
+          "name": "off",
+          "status": "complete",
+          "evidence": ".toggle (styles.css:131)",
+          "confidence": "inferred"
+        },
+        {
+          "name": "on",
+          "status": "missing",
+          "evidence": "no checked/on rule found",
+          "confidence": "inferred"
+        },
+        {
+          "name": "focus",
+          "status": "complete",
+          "evidence": ".toggle:focus (styles.css:141)",
+          "confidence": "inferred"
+        },
+        {
+          "name": "disabled",
+          "status": "partial",
+          "evidence": "disabled attribute or generic styling only",
+          "confidence": "inferred"
+        },
+        {
+          "name": "transition",
+          "status": "complete",
+          "evidence": "transition present",
+          "confidence": "inferred"
+        }
+      ]
+    },
+    {
+      "id": "C-009",
+      "kind": "button",
+      "name": "Save changes",
+      "file": "index.html",
+      "line": 86,
+      "status": "missing",
+      "coverage": 33,
+      "element": "<button class=\"save\" type=\"submit\">",
+      "states": [
+        {
+          "name": "default",
+          "status": "complete",
+          "evidence": "element present",
+          "confidence": "verified"
+        },
+        {
+          "name": "hover",
+          "status": "missing",
+          "evidence": "no :hover styling found",
+          "confidence": "inferred"
+        },
+        {
+          "name": "active",
+          "status": "missing",
+          "evidence": "no :active styling found",
+          "confidence": "inferred"
+        },
+        {
+          "name": "focus",
+          "status": "partial",
+          "evidence": "only generic :focus styling",
+          "confidence": "inferred"
+        },
+        {
+          "name": "disabled",
+          "status": "partial",
+          "evidence": "project-level disabled styling only",
+          "confidence": "inferred"
+        },
+        {
+          "name": "loading",
+          "status": "missing",
+          "evidence": "async submit with no loading state",
+          "confidence": "inferred"
+        },
+        {
+          "name": "success",
+          "status": "n/a",
+          "evidence": "feedback belongs to the form or journey",
+          "confidence": "inferred"
+        }
+      ]
+    },
+    {
+      "id": "C-010",
+      "kind": "button",
+      "name": "Reset",
+      "file": "index.html",
+      "line": 87,
+      "status": "partial",
+      "coverage": 50,
+      "element": "<button class=\"ghost\" type=\"button\" disabled>",
+      "states": [
+        {
+          "name": "default",
+          "status": "complete",
+          "evidence": "element present",
+          "confidence": "verified"
+        },
+        {
+          "name": "hover",
+          "status": "missing",
+          "evidence": "no :hover styling found",
+          "confidence": "inferred"
+        },
+        {
+          "name": "active",
+          "status": "missing",
+          "evidence": "no :active styling found",
+          "confidence": "inferred"
+        },
+        {
+          "name": "focus",
+          "status": "partial",
+          "evidence": "only generic :focus styling",
+          "confidence": "inferred"
+        },
+        {
+          "name": "disabled",
+          "status": "complete",
+          "evidence": ".ghost:disabled (styles.css:155)",
+          "confidence": "verified"
+        },
+        {
+          "name": "loading",
+          "status": "n/a",
+          "evidence": "no async submit action",
+          "confidence": "inferred"
+        },
+        {
+          "name": "success",
+          "status": "n/a",
+          "evidence": "feedback belongs to the form or journey",
+          "confidence": "inferred"
+        }
+      ]
+    },
+    {
+      "id": "C-011",
+      "kind": "button",
+      "name": "Cancel",
+      "file": "index.html",
+      "line": 88,
+      "status": "partial",
+      "coverage": 50,
+      "element": "<button class=\"ghost\" type=\"button\">",
+      "states": [
+        {
+          "name": "default",
+          "status": "complete",
+          "evidence": "element present",
+          "confidence": "verified"
+        },
+        {
+          "name": "hover",
+          "status": "missing",
+          "evidence": "no :hover styling found",
+          "confidence": "inferred"
+        },
+        {
+          "name": "active",
+          "status": "missing",
+          "evidence": "no :active styling found",
+          "confidence": "inferred"
+        },
+        {
+          "name": "focus",
+          "status": "partial",
+          "evidence": "only generic :focus styling",
+          "confidence": "inferred"
+        },
+        {
+          "name": "disabled",
+          "status": "complete",
+          "evidence": ".ghost:disabled (styles.css:155)",
+          "confidence": "verified"
+        },
+        {
+          "name": "loading",
+          "status": "n/a",
+          "evidence": "no async submit action",
+          "confidence": "inferred"
+        },
+        {
+          "name": "success",
+          "status": "n/a",
+          "evidence": "feedback belongs to the form or journey",
+          "confidence": "inferred"
+        }
+      ]
+    },
+    {
+      "id": "C-012",
+      "kind": "dropdown",
+      "name": "Filter activity",
+      "file": "index.html",
+      "line": 96,
+      "status": "missing",
+      "coverage": 30,
+      "element": "<div class=\"dropdown\" role=\"combobox\" aria-expanded=\"false\" aria-label=\"Filter activity\">",
+      "states": [
+        {
+          "name": "closed",
+          "status": "complete",
+          "evidence": "closed state is the default",
+          "confidence": "verified"
+        },
+        {
+          "name": "open",
+          "status": "missing",
+          "evidence": "no expanded state hook",
+          "confidence": "inferred"
+        },
+        {
+          "name": "selected",
+          "status": "missing",
+          "evidence": "no selected state hook",
+          "confidence": "inferred"
+        },
+        {
+          "name": "empty/no results",
+          "status": "missing",
+          "evidence": "no no-results copy detected",
+          "confidence": "inferred"
+        },
+        {
+          "name": "disabled",
+          "status": "partial",
+          "evidence": "browser default only",
+          "confidence": "inferred"
+        }
+      ]
+    },
+    {
+      "id": "C-013",
+      "kind": "button",
+      "name": "Delete workspace",
+      "file": "index.html",
+      "line": 116,
+      "status": "missing",
+      "coverage": 40,
+      "element": "<button class=\"delete\" type=\"button\">",
+      "states": [
+        {
+          "name": "default",
+          "status": "complete",
+          "evidence": "element present",
+          "confidence": "verified"
+        },
+        {
+          "name": "hover",
+          "status": "missing",
+          "evidence": "no :hover styling found",
+          "confidence": "inferred"
+        },
+        {
+          "name": "active",
+          "status": "missing",
+          "evidence": "no :active styling found",
+          "confidence": "inferred"
+        },
+        {
+          "name": "focus",
+          "status": "partial",
+          "evidence": "only generic :focus styling",
+          "confidence": "inferred"
+        },
+        {
+          "name": "disabled",
+          "status": "partial",
+          "evidence": "project-level disabled styling only",
+          "confidence": "inferred"
+        },
+        {
+          "name": "loading",
+          "status": "n/a",
+          "evidence": "no async submit action",
+          "confidence": "inferred"
+        },
+        {
+          "name": "success",
+          "status": "n/a",
+          "evidence": "feedback belongs to the form or journey",
+          "confidence": "inferred"
+        }
+      ]
+    },
+    {
+      "id": "C-014",
+      "kind": "feedback",
+      "name": "toast",
+      "file": "index.html",
+      "line": 123,
+      "status": "missing",
+      "coverage": 33,
+      "element": "<div class=\"toast\" id=\"toast\">",
+      "states": [
+        {
+          "name": "polite announcement",
+          "status": "missing",
+          "evidence": "no aria-live",
+          "confidence": "inferred"
+        },
+        {
+          "name": "success",
+          "status": "complete",
+          "evidence": "success feedback detected",
+          "confidence": "inferred"
+        },
+        {
+          "name": "error",
+          "status": "missing",
+          "evidence": "no error feedback detected",
+          "confidence": "inferred"
+        }
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "id": "FL-0001",
+      "check": "form.failure-feedback",
+      "category": "feedback",
+      "title": "Async form has no failure feedback",
+      "severity": "critical",
+      "file": "index.html",
+      "line": 46,
+      "evidence": "<form id=\"settings-form\"> <div class=\"field-row\"> <label for=\"workspace-name\">Workspace name</label> <input id=\"workspace-name\" name=\"workspace\" value=\"Northstar Labs\"> </div> <div class=\"field-row\"> <span class=\"field-…",
+      "why": "A failed network or server response leaves the user with no explanation or recovery path.",
+      "repair": "Render an error with a retry path; keep entered values; announce it.",
+      "confidence": "inferred",
+      "component": null,
+      "status": "open"
+    },
+    {
+      "id": "FL-0002",
+      "check": "a11y.input-labels",
+      "category": "accessibility",
+      "title": "Inputs have no accessible label",
+      "severity": "critical",
+      "file": "index.html",
+      "line": 53,
+      "evidence": "2 unlabelled input(s); first: <input type=\"email\" name=\"email\" value=\"ops@northstar.dev\">",
+      "why": "A placeholder is not a label: it disappears when typing and is inconsistently announced.",
+      "repair": "Associate a `<label for>` or add `aria-label`/`aria-labelledby`.",
+      "confidence": "verified",
+      "component": null,
+      "status": "open"
+    },
+    {
+      "id": "FL-0003",
+      "check": "form.auth-error",
+      "category": "forms",
+      "title": "Password flow has no visible error surface",
+      "severity": "critical",
+      "file": "index.html",
+      "line": 58,
+      "evidence": "type=\"password\"",
+      "why": "Authentication failure must be explained in the interface, not only in the console or a redirect.",
+      "repair": "Add an inline error region with `role=\"alert\"`, preserve the email, and clear the password.",
+      "confidence": "inferred",
+      "component": null,
+      "status": "open"
+    },
+    {
+      "id": "FL-0004",
+      "check": "interaction.network-error",
+      "category": "interaction",
+      "title": "Fetch call has no rejection path",
+      "severity": "high",
+      "file": "app.js",
+      "line": 21,
+      "evidence": "fetch(",
+      "why": "Network failure can leave a permanent loading state or an unhandled rejection.",
+      "repair": "Wrap requests in try/catch, show an actionable error, and restore the control state.",
+      "confidence": "inferred",
+      "component": null,
+      "status": "open"
+    },
+    {
+      "id": "FL-0005",
+      "check": "a11y.icon-button-label",
+      "category": "accessibility",
+      "title": "Icon-only button has no accessible name",
+      "severity": "high",
+      "file": "index.html",
+      "line": 13,
+      "evidence": "2 icon button(s); first: <button class=\"icon-btn\" type=\"button\"> <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12…",
+      "why": "A visible icon is not a name. Screen-reader users hear only “button”.",
+      "repair": "Add an `aria-label` that names the action, or visible text.",
+      "confidence": "verified",
+      "component": null,
+      "status": "open"
+    },
+    {
+      "id": "FL-0006",
+      "check": "a11y.image-alt",
+      "category": "accessibility",
+      "title": "Images are missing alt text",
+      "severity": "high",
+      "file": "index.html",
+      "line": 16,
+      "evidence": "1 image(s) without alt; first: <img class=\"avatar\" src=\"avatar.png\" width=\"32\" height=\"32\">",
+      "why": "Assistive technology cannot describe images without `alt`; decorative images still need `alt=\"\"`.",
+      "repair": "Add meaningful alt text, or `alt=\"\"` for purely decorative images.",
+      "confidence": "verified",
+      "component": null,
+      "status": "open"
+    },
+    {
+      "id": "FL-0007",
+      "check": "form.pending-feedback",
+      "category": "feedback",
+      "title": "Async form has no pending state",
+      "severity": "high",
+      "file": "index.html",
+      "line": 46,
+      "evidence": "<form id=\"settings-form\"> <div class=\"field-row\"> <label for=\"workspace-name\">Workspace name</label> <input id=\"workspace-name\" name=\"workspace\" value=\"Northstar Labs\"> </div> <div class=\"field-row\"> <span class=\"field-…",
+      "why": "Without a pending state users cannot tell whether the click registered and may double-submit.",
+      "repair": "Disable the trigger, keep its label, show a progress indicator, and prevent duplicate submits.",
+      "confidence": "inferred",
+      "component": null,
+      "status": "open"
+    },
+    {
+      "id": "FL-0008",
+      "check": "form.validation",
+      "category": "forms",
+      "title": "Form has fields but no validation path",
+      "severity": "high",
+      "file": "index.html",
+      "line": 46,
+      "evidence": "<form id=\"settings-form\"> <div class=\"field-row\"> <label for=\"workspace-name\">Workspace name</label> <input id=\"workspace-name\" name=\"workspace\" value=\"Northst…",
+      "why": "Users receive no guidance until a server rejects the request, often losing context.",
+      "repair": "Add constraints, inline field errors, and focus the first invalid field on submit.",
+      "confidence": "inferred",
+      "component": null,
+      "status": "open"
+    },
+    {
+      "id": "FL-0009",
+      "check": "state.input-invalid",
+      "category": "component-state",
+      "title": "Validated input has no invalid state",
+      "severity": "high",
+      "file": "index.html",
+      "line": 53,
+      "evidence": "email at index.html:53",
+      "why": "Users cannot see which field failed validation when the error appears only on submit.",
+      "repair": "Add an invalid style, inline message and `aria-invalid`; keep the value.",
+      "confidence": "inferred",
+      "component": null,
+      "status": "open"
+    },
+    {
+      "id": "FL-0010",
+      "check": "state.toggle-on",
+      "category": "component-state",
+      "title": "2 toggle(s) have no distinct ON state",
+      "severity": "high",
+      "file": "index.html",
+      "line": 70,
+      "evidence": "Email alerts (index.html:70), Weekly usage digest (index.html:80)",
+      "why": "ON and OFF are the two essential states of a switch. If users cannot tell them apart, the control lies about the setting.",
+      "repair": "Style the checked/on state with more than colour alone (position, shape, icon or label), and verify both states.",
+      "confidence": "inferred",
+      "component": null,
+      "status": "open"
+    },
+    {
+      "id": "FL-0011",
+      "check": "state.button-loading",
+      "category": "component-state",
+      "title": "Async submit button has no loading state",
+      "severity": "high",
+      "file": "index.html",
+      "line": 86,
+      "evidence": "1 affected button(s); first: Save changes",
+      "why": "Users cannot tell whether the action started, so they click again or abandon the flow.",
+      "repair": "Keep the label, add a spinner/progress state, disable the button, and guard against duplicate submits.",
+      "confidence": "inferred",
+      "component": null,
+      "status": "open"
+    },
+    {
+      "id": "FL-0012",
+      "check": "interaction.destructive-confirm",
+      "category": "interaction",
+      "title": "Destructive action has no confirmation or undo",
+      "severity": "high",
+      "file": "index.html",
+      "line": 87,
+      "evidence": "<button class=\"ghost\" type=\"button\" disabled>Reset",
+      "why": "A single misclick can destroy data with no recovery path.",
+      "repair": "Require explicit confirmation naming the object, or provide a time-bound Undo.",
+      "confidence": "inferred",
+      "component": null,
+      "status": "open"
+    },
+    {
+      "id": "FL-0013",
+      "check": "a11y.contrast",
+      "category": "accessibility",
+      "title": "Text contrast is 2.41:1",
+      "severity": "high",
+      "file": "styles.css",
+      "line": 107,
+      "evidence": ".muted-low → #A2A7B5 on #FFFFFF",
+      "why": "The declared foreground/background pair misses the 4.5:1 threshold at this text size. Contrast computed from static CSS literals; verify against the rendered state.",
+      "repair": "Adjust the pair to at least 4.5:1 (WCAG 2.2 AA), preserving hierarchy.",
+      "confidence": "verified",
+      "component": null,
+      "status": "open"
+    },
+    {
+      "id": "FL-0014",
+      "check": "a11y.reduced-motion",
+      "category": "accessibility",
+      "title": "Motion does not respect reduced-motion preference",
+      "severity": "medium",
+      "file": "index.html",
+      "line": 1,
+      "evidence": "transitions/animations present without prefers-reduced-motion",
+      "why": "Vestibular and attention-sensitive users can be harmed by unavoidable animation.",
+      "repair": "Add a `prefers-reduced-motion: reduce` branch that removes non-essential movement and transitions.",
+      "confidence": "inferred",
+      "component": null,
+      "status": "open"
+    },
+    {
+      "id": "FL-0015",
+      "check": "state.empty",
+      "category": "component-state",
+      "title": "No empty state is evidenced for dynamic content",
+      "severity": "medium",
+      "file": "index.html",
+      "line": 1,
+      "evidence": "async flow without empty-state copy or component",
+      "why": "Lists, searches and tables with zero results are common; without an empty state they look broken.",
+      "repair": "Add intentional empty, no-results and first-run states with a next action.",
+      "confidence": "inferred",
+      "component": null,
+      "status": "open"
+    },
+    {
+      "id": "FL-0016",
+      "check": "state.component-coverage",
+      "category": "component-state",
+      "title": "5 components have less than 50% state coverage",
+      "severity": "medium",
+      "file": "index.html",
+      "line": 13,
+      "evidence": "Button, settings-form, Button, Save changes",
+      "why": "A component that only works on the happy path is not finished.",
+      "repair": "Work through the component matrix from highest-risk state to lowest; verify each in the browser.",
+      "confidence": "inferred",
+      "component": null,
+      "status": "open"
+    },
+    {
+      "id": "FL-0017",
+      "check": "form.secret-reveal",
+      "category": "forms",
+      "title": "Password field cannot be revealed",
+      "severity": "medium",
+      "file": "index.html",
+      "line": 46,
+      "evidence": "<form id=\"settings-form\"> <div class=\"field-row\"> <label for=\"workspace-name\">Workspace name</label> <input id=\"workspace-name\" name=\"workspace\" value=\"Northstar Labs\"> </div> <div class=\"field-row\"> <span class=\"field-…",
+      "why": "Users cannot verify what they typed, increasing failed sign-ins.",
+      "repair": "Add a labelled show/hide control that preserves the value and focus.",
+      "confidence": "inferred",
+      "component": null,
+      "status": "open"
+    },
+    {
+      "id": "FL-0018",
+      "check": "state.dropdown-empty",
+      "category": "component-state",
+      "title": "Dropdown has no no-results state",
+      "severity": "medium",
+      "file": "index.html",
+      "line": 96,
+      "evidence": "Filter activity at index.html:96",
+      "why": "A searchable menu with zero matches looks broken unless it explains the emptiness and next step.",
+      "repair": "Render a no-results row with the query and a way to clear it.",
+      "confidence": "inferred",
+      "component": null,
+      "status": "open"
+    },
+    {
+      "id": "FL-0019",
+      "check": "interaction.toast-live",
+      "category": "feedback",
+      "title": "Toast notifications are not announced",
+      "severity": "medium",
+      "file": "index.html",
+      "line": 123,
+      "evidence": "class=\"toast",
+      "why": "Visual-only toasts are invisible to screen-reader users.",
+      "repair": "Add `role=\"status\"` (polite) or `role=\"alert\"` (assertive) and a persistent live region.",
+      "confidence": "verified",
+      "component": null,
+      "status": "open"
+    },
+    {
+      "id": "FL-0020",
+      "check": "precision.fixed-width",
+      "category": "precision",
+      "title": "Fixed width exceeds small viewports",
+      "severity": "medium",
+      "file": "styles.css",
+      "line": 1,
+      "evidence": ".panel { width: 760px; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); paddin… }",
+      "why": "A fixed desktop width forces horizontal scrolling or clipping on mobile.",
+      "repair": "Use a fluid width with `max-width`, or add a breakpoint override.",
+      "confidence": "inferred",
+      "component": null,
+      "status": "open"
+    },
+    {
+      "id": "FL-0021",
+      "check": "precision.radius-system",
+      "category": "precision",
+      "title": "6 radius values are in use",
+      "severity": "low",
+      "file": "index.html",
+      "line": 1,
+      "evidence": "10px, 8px, 4px, 6px, 999px, 9px",
+      "why": "Unsystematic corners weaken component family resemblance.",
+      "repair": "Define a small radius scale and map components to roles (control, surface, pill).",
+      "confidence": "verified",
+      "component": null,
+      "status": "open"
+    },
+    {
+      "id": "FL-0022",
+      "check": "precision.spacing-grid",
+      "category": "precision",
+      "title": "13 spacing values sit off the 4px grid",
+      "severity": "low",
+      "file": "index.html",
+      "line": 1,
+      "evidence": "10px, 11px, 14px, 15px, 17px, 22px, 26px, 3px, 42px, 5px",
+      "why": "Optical alignment is fine, but accidental 3/5/7px values usually indicate drift.",
+      "repair": "Confirm each off-grid value is deliberate; otherwise snap to the spacing scale.",
+      "confidence": "verified",
+      "component": null,
+      "status": "open"
+    },
+    {
+      "id": "FL-0023",
+      "check": "responsive.touch-action",
+      "category": "responsive",
+      "title": "Controls do not declare touch-action: manipulation",
+      "severity": "low",
+      "file": "index.html",
+      "line": 1,
+      "evidence": "no touch-action: manipulation",
+      "why": "Double-tap delay and zoom can make repeated controls feel unresponsive.",
+      "repair": "Set `touch-action: manipulation` on interactive controls.",
+      "confidence": "inferred",
+      "component": null,
+      "status": "open"
+    },
+    {
+      "id": "FL-0024",
+      "check": "a11y.skip-link",
+      "category": "accessibility",
+      "title": "No skip-to-content link",
+      "severity": "low",
+      "file": "index.html",
+      "line": 9,
+      "evidence": "<body>",
+      "why": "Keyboard and switch users must traverse repeated navigation on every page.",
+      "repair": "Add a visible-on-focus link to `#main` at the start of the body.",
+      "confidence": "verified",
+      "component": null,
+      "status": "open"
+    },
+    {
+      "id": "FL-0025",
+      "check": "form.auth-error",
+      "category": "forms",
+      "title": "Credential fields lack autocomplete hints",
+      "severity": "low",
+      "file": "index.html",
+      "line": 46,
+      "evidence": "<form",
+      "why": "Password managers depend on `username` and `current-password` autocomplete values.",
+      "repair": "Add `autocomplete=\"username\"` and `autocomplete=\"current-password\"`.",
+      "confidence": "inferred",
+      "component": null,
+      "status": "open"
+    },
+    {
+      "id": "FL-0026",
+      "check": "form.unsaved-changes",
+      "category": "interaction",
+      "title": "Editable form has no unsaved-changes guard",
+      "severity": "low",
+      "file": "index.html",
+      "line": 46,
+      "evidence": "<form id=\"settings-form\"> <div class=\"field-row\"> <label for=\"workspace-name\">Workspace name</label> <input id=\"workspace-name\" name=\"workspace\" value=\"Northstar Labs\"> </div> <div class=\"field-row\"> <span class=\"field-…",
+      "why": "Navigating away silently discards edits and undermines trust in the save action.",
+      "repair": "Track dirtiness and warn before navigation, or support autosave with a clear status.",
+      "confidence": "inferred",
+      "component": null,
+      "status": "open"
+    },
+    {
+      "id": "FL-0027",
+      "check": "anti-slop.hype-copy",
+      "category": "content",
+      "title": "Promotional filler copy is present",
+      "severity": "low",
+      "file": "index.html",
+      "line": 60,
+      "evidence": "2 hype terms; first: Seamlessly",
+      "why": "Generic superlatives reduce trust and rarely explain what the product does.",
+      "repair": "Replace with specific, user-facing verbs and outcomes; name things by what users control.",
+      "confidence": "verified",
+      "component": null,
+      "status": "open"
+    },
+    {
+      "id": "FL-0028",
+      "check": "responsive.table-overflow",
+      "category": "responsive",
+      "title": "Table has no narrow-screen strategy",
+      "severity": "low",
+      "file": "index.html",
+      "line": 101,
+      "evidence": "<table>",
+      "why": "Wide tables overflow the viewport and hide columns.",
+      "repair": "Allow horizontal scrolling in a labelled region, or switch to a stacked layout.",
+      "confidence": "inferred",
+      "component": null,
+      "status": "open"
+    },
+    {
+      "id": "FL-0029",
+      "check": "a11y.new-tab",
+      "category": "accessibility",
+      "title": "New-tab link lacks rel=noopener",
+      "severity": "low",
+      "file": "index.html",
+      "line": 108,
+      "evidence": "<a href=\"https://docs.example.com/activity\" target=\"_blank\">",
+      "why": "The opened page can access `window.opener` in some browsers.",
+      "repair": "Add `rel=\"noopener noreferrer\"` (and announce the new tab when appropriate).",
+      "confidence": "verified",
+      "component": null,
+      "status": "open"
+    },
+    {
+      "id": "FL-0030",
+      "check": "anti-slop.gradient",
+      "category": "anti-slop",
+      "title": "Generic purple/blue gradient detected",
+      "severity": "low",
+      "file": "index.html",
+      "line": 126,
+      "evidence": "linear-gradient(135deg, #6366f1, #8b5cf6)",
+      "why": "The default AI gradient is rarely tied to product meaning; it reads as a template.",
+      "repair": "If colour is carrying identity, justify this exact palette; otherwise use a deliberate surface system.",
+      "confidence": "verified",
+      "component": null,
+      "status": "open"
+    },
+    {
+      "id": "FL-0031",
+      "check": "a11y.mobile-input-size",
+      "category": "accessibility",
+      "title": "Input text is below 16px",
+      "severity": "low",
+      "file": "styles.css",
+      "line": 1,
+      "evidence": "input { width: 100%; height: 40px; border: 1px solid var(--line); border-radius: 10px; padding: 0 12px; fon… }",
+      "why": "iOS Safari may zoom the page when a small input receives focus, disrupting layout.",
+      "repair": "Use ≥16px input text on mobile (or set it inside a mobile media query).",
+      "confidence": "inferred",
+      "component": null,
+      "status": "open"
+    },
+    {
+      "id": "FL-0032",
+      "check": "motion.transition-all",
+      "category": "motion",
+      "title": "transition: all is used",
+      "severity": "low",
+      "file": "styles.css",
+      "line": 1,
+      "evidence": ".toast { position: fixed; right: 24px; bottom: 24px; background: #171a22; color: white; border-radius: 10px;… }",
+      "why": "It animates unexpected properties, can cause layout jank, and hides intent.",
+      "repair": "List the properties that should transition.",
+      "confidence": "verified",
+      "component": null,
+      "status": "open"
+    }
+  ],
+  "verification": {
+    "mode": "static",
+    "rendered": false,
+    "checks_run": [
+      "a11y.viewport",
+      "a11y.lang-title",
+      "a11y.image-alt",
+      "a11y.input-labels",
+      "a11y.icon-button-label",
+      "a11y.div-click",
+      "a11y.focus-visible",
+      "a11y.reduced-motion",
+      "a11y.skip-link",
+      "a11y.landmark",
+      "a11y.zoom-disabled",
+      "a11y.mobile-input-size",
+      "a11y.contrast",
+      "a11y.hover-only",
+      "a11y.aria-live",
+      "a11y.new-tab",
+      "form.validation",
+      "form.failure-feedback",
+      "form.success-feedback",
+      "form.pending-feedback",
+      "form.secret-reveal",
+      "form.unsaved-changes",
+      "form.auth-error",
+      "state.toggle-on",
+      "state.button-loading",
+      "state.input-invalid",
+      "state.component-coverage",
+      "state.empty",
+      "state.dialog-close",
+      "state.dialog-escape",
+      "state.dialog-focus",
+      "state.dropdown-empty",
+      "state.disabled-style",
+      "interaction.destructive-confirm",
+      "interaction.network-error",
+      "interaction.toast-live",
+      "interaction.focus-first-error",
+      "precision.fixed-width",
+      "precision.spacing-grid",
+      "precision.radius-system",
+      "precision.z-index",
+      "precision.important",
+      "precision.icon-sizes",
+      "precision.color-tokens",
+      "typography.family-count",
+      "typography.type-scale",
+      "typography.weights",
+      "typography.line-height",
+      "typography.font-display",
+      "responsive.media-queries",
+      "responsive.table-overflow",
+      "responsive.touch-action",
+      "responsive.overflow-mask",
+      "anti-slop.lorem",
+      "anti-slop.hype-copy",
+      "anti-slop.gradient",
+      "anti-slop.glass",
+      "anti-slop.radius",
+      "motion.transition-all"
+    ],
+    "check_count": 59,
+    "screenshots": 0,
+    "limitations": [
+      "Static source analysis only: no screenshot or browser was used by this run.",
+      "Absence of a state is inferred from missing source evidence; framework-generated state may exist outside scanned files.",
+      "Contrast findings use same-block literal colour pairs; variables, gradients, images and alpha compositing are excluded.",
+      "Automated checks cannot verify screen-reader usability, cognitive load, or task success. Manual WCAG 2.2 AA review is still required.",
+      "Component associations are heuristic and use filename/class evidence; review the matrix instead of treating it as proof."
+    ]
+  }
+}

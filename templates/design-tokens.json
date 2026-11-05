@@ -1,0 +1,147 @@
+{
+  "$meta": {
+    "name": "FINISHLINE starting tokens",
+    "description": "A deliberately small, role-based token contract. Replace values with product decisions; do not add a token for every arbitrary value.",
+    "version": "1.0.0",
+    "license": "MIT"
+  },
+  "color": {
+    "surface": {
+      "page": "#f6f5f1",
+      "raised": "#ffffff",
+      "sunken": "#eceae3",
+      "inverse": "#17201c"
+    },
+    "text": {
+      "primary": "#1c2521",
+      "secondary": "#4f5b55",
+      "muted": "#69756f",
+      "inverse": "#f6f5f1",
+      "link": "#176685"
+    },
+    "border": {
+      "subtle": "#dedbd2",
+      "strong": "#b8b4a8",
+      "focus": "#176685"
+    },
+    "action": {
+      "primary": "#1d5a48",
+      "primary-hover": "#16483a",
+      "primary-text": "#ffffff",
+      "secondary": "#e6ebe7",
+      "secondary-hover": "#d8e1db",
+      "secondary-text": "#1c2a24",
+      "destructive": "#a43131",
+      "destructive-hover": "#872727",
+      "destructive-text": "#ffffff"
+    },
+    "status": {
+      "info": "#176685",
+      "info-soft": "#e5f1f4",
+      "success": "#216340",
+      "success-soft": "#e6f1e9",
+      "warning": "#7a5511",
+      "warning-soft": "#f8efd9",
+      "danger": "#a43131",
+      "danger-soft": "#f7e7e5"
+    }
+  },
+  "type": {
+    "family": {
+      "sans": "\"IBM Plex Sans\", ui-sans-serif, system-ui, sans-serif",
+      "serif": "Newsreader, ui-serif, Georgia, serif",
+      "mono": "\"IBM Plex Mono\", ui-monospace, SFMono-Regular, monospace"
+    },
+    "size": {
+      "xs": "0.75rem",
+      "sm": "0.8125rem",
+      "base": "1rem",
+      "lg": "1.125rem",
+      "xl": "1.375rem",
+      "2xl": "1.75rem",
+      "3xl": "2.25rem",
+      "4xl": "3rem"
+    },
+    "line-height": {
+      "tight": "1.15",
+      "heading": "1.25",
+      "body": "1.55",
+      "relaxed": "1.7"
+    },
+    "weight": {
+      "regular": 400,
+      "medium": 500,
+      "semibold": 600,
+      "bold": 700
+    },
+    "measure": {
+      "narrow": "34ch",
+      "body": "65ch",
+      "wide": "80ch"
+    }
+  },
+  "space": {
+    "1": "0.25rem",
+    "2": "0.5rem",
+    "3": "0.75rem",
+    "4": "1rem",
+    "5": "1.25rem",
+    "6": "1.5rem",
+    "8": "2rem",
+    "10": "2.5rem",
+    "12": "3rem",
+    "16": "4rem",
+    "20": "5rem",
+    "24": "6rem"
+  },
+  "radius": {
+    "none": "0",
+    "sm": "4px",
+    "md": "8px",
+    "lg": "12px",
+    "full": "999px"
+  },
+  "elevation": {
+    "none": "none",
+    "raised": "0 1px 2px rgb(23 32 28 / 0.08), 0 1px 3px rgb(23 32 28 / 0.06)",
+    "overlay": "0 12px 32px rgb(23 32 28 / 0.16)",
+    "dialog": "0 24px 64px rgb(23 32 28 / 0.24)"
+  },
+  "layer": {
+    "base": 0,
+    "sticky": 10,
+    "dropdown": 20,
+    "overlay": 30,
+    "modal": 40,
+    "toast": 50
+  },
+  "motion": {
+    "duration": {
+      "instant": "80ms",
+      "fast": "140ms",
+      "standard": "220ms",
+      "slow": "360ms"
+    },
+    "easing": {
+      "standard": "cubic-bezier(0.2, 0, 0, 1)",
+      "enter": "cubic-bezier(0.16, 1, 0.3, 1)",
+      "exit": "cubic-bezier(0.4, 0, 1, 1)"
+    }
+  },
+  "breakpoint": {
+    "sm": "480px",
+    "md": "768px",
+    "lg": "1024px",
+    "xl": "1280px"
+  },
+  "target": {
+    "minimum": "24px",
+    "comfortable": "44px"
+  },
+  "focus": {
+    "width": "2px",
+    "offset": "2px",
+    "style": "solid",
+    "color": "{color.border.focus}"
+  }
+}

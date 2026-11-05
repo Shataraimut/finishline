@@ -1,0 +1,106 @@
+{
+  "schema_version": "1.0",
+  "generator": {
+    "name": "finishline-capture",
+    "version": "1.0.0"
+  },
+  "captured_at": "2026-11-05T02:26:03+00:00",
+  "target": "examples",
+  "tool": {
+    "name": "chromium-headless",
+    "binary": "/usr/bin/chromium"
+  },
+  "viewports": [
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "shots": [
+    {
+      "id": "login-page-index-desktop",
+      "page": "login-page/index.html",
+      "title": "Sign in — Meridian",
+      "url": "http://127.0.0.1:40353/login-page/index.html",
+      "viewport": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "path": "login-page-index-desktop.png",
+      "bytes": 93793,
+      "captured": true
+    },
+    {
+      "id": "login-page-index-mobile",
+      "page": "login-page/index.html",
+      "title": "Sign in — Meridian",
+      "url": "http://127.0.0.1:40353/login-page/index.html",
+      "viewport": "mobile",
+      "width": 390,
+      "height": 844,
+      "path": "login-page-index-mobile.png",
+      "bytes": 55743,
+      "captured": true
+    },
+    {
+      "id": "dashboard-index-desktop",
+      "page": "dashboard/index.html",
+      "title": "Overview — Meridian",
+      "url": "http://127.0.0.1:40353/dashboard/index.html",
+      "viewport": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "path": "dashboard-index-desktop.png",
+      "bytes": 126996,
+      "captured": true
+    },
+    {
+      "id": "dashboard-index-mobile",
+      "page": "dashboard/index.html",
+      "title": "Overview — Meridian",
+      "url": "http://127.0.0.1:40353/dashboard/index.html",
+      "viewport": "mobile",
+      "width": 390,
+      "height": 844,
+      "path": "dashboard-index-mobile.png",
+      "bytes": 42241,
+      "captured": true
+    },
+    {
+      "id": "settings-page-index-desktop",
+      "page": "settings-page/index.html",
+      "title": "Workspace settings — Meridian",
+      "url": "http://127.0.0.1:40353/settings-page/index.html",
+      "viewport": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "path": "settings-page-index-desktop.png",
+      "bytes": 109391,
+      "captured": true
+    },
+    {
+      "id": "settings-page-index-mobile",
+      "page": "settings-page/index.html",
+      "title": "Workspace settings — Meridian",
+      "url": "http://127.0.0.1:40353/settings-page/index.html",
+      "viewport": "mobile",
+      "width": 390,
+      "height": 844,
+      "path": "settings-page-index-mobile.png",
+      "bytes": 48471,
+      "captured": true
+    }
+  ],
+  "skipped": [],
+  "limitations": [
+    "Viewport screenshots only; scrolling states, hover/focus states and interaction flows are not captured.",
+    "The page is rendered with a 3 second virtual-time budget; delayed async content may be missing.",
+    "Screenshots prove pixels existed, not WCAG compliance or usability."
+  ],
+  "base_url": "http://127.0.0.1:40353"
+}

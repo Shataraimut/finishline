@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#F4F2EB">
+  <title>Overview — Meridian</title>
+  <meta name="description" content="Review request health, traffic, and recent API activity in the Meridian operations console.">
+  <link rel="icon" href="../shared/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../shared/fonts/ibm-plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../shared/fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../shared/meridian.css">
+  <link rel="stylesheet" href="dashboard.css">
+  <script defer src="../shared/meridian.js"></script>
+  <script defer src="dashboard.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to dashboard content</a>
+
+  <div class="app">
+    <aside class="sidebar" id="sidebar" data-sidebar aria-label="Primary navigation">
+      <a class="brand" href="../dashboard/" aria-label="Meridian overview">
+        <span class="brand-mark" aria-hidden="true">M</span>
+        <span>
+          <span class="brand-word">meridian</span>
+          <span class="brand-sub">API operations</span>
+        </span>
+      </a>
+
+      <p class="side-label">Observe</p>
+      <nav class="side-nav" aria-label="Observe">
+        <a class="side-link" href="../dashboard/" aria-current="page">
+          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13h5l2-7 3 12 2-5h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/></svg>
+          Overview
+        </a>
+        <a class="side-link" href="#requests">
+          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 6h14M5 12h14M5 18h9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          Recent requests
+        </a>
+      </nav>
+
+      <p class="side-label">Manage</p>
+      <nav class="side-nav" aria-label="Manage">
+        <a class="side-link" href="../settings-page/">
+          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+          Workspace settings
+        </a>
+        <a class="side-link" href="../settings-page/#tokens">
+          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="12" r="3.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11.5 12H21M17 12v3M20 12v3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          API keys
+        </a>
+      </nav>
+
+      <div class="sidebar-foot">
+        <div class="workspace-card">
+          <p class="workspace-card-label">Workspace</p>
+          <p class="workspace-card-name">Northstar Labs</p>
+          <p class="workspace-card-plan">Production · Scale plan</p>
+        </div>
+        <div class="user-row">
+          <span class="avatar" aria-hidden="true">MK</span>
+          <span class="user-meta">
+            <span class="user-name">Mara Kade</span>
+            <span class="user-email">ops@meridian.dev</span>
+          </span>
+          <a class="signout" href="../login-page/" aria-label="Sign out of the demo">Exit</a>
+        </div>
+      </div>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <div class="topbar-start">
+          <button class="shell-toggle" type="button" data-shell-toggle aria-controls="sidebar" aria-expanded="false">
+            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+            <span class="sr-only">Open navigation</span>
+          </button>
+          <p class="crumb">Northstar Labs <span class="crumb-sep">/</span> <strong>Overview</strong></p>
+        </div>
+        <div class="topbar-end">
+          <span class="demo-chip">Demo data</span>
+          <time class="refresh-meta" id="current-date" datetime=""></time>
+          <a class="topbar-link" href="../settings-page/">Settings</a>
+        </div>
+      </header>
+
+      <main class="content" id="main">
+        <div class="page-head">
+          <div>
+            <p class="eyebrow">Operations overview</p>
+            <h1 class="page-title">Quietly in control.</h1>
+            <p class="page-lede">Request health for the last 24 hours across production. Synthetic demo traffic only; no customer data is represented here.</p>
+          </div>
+          <div class="page-actions">
+            <button class="button is-quiet" id="export-csv" type="button">Export CSV</button>
+            <button class="button" id="refresh-data" type="button">Refresh data</button>
+          </div>
+        </div>
+
+        <section class="metric-grid" aria-label="Key metrics">
+          <article class="metric">
+            <p class="metric-label">Requests / 24h</p>
+            <p class="metric-value" id="metric-requests">1.85<small>M</small></p>
+            <p class="metric-foot"><span class="trend is-good"><svg class="trend-icon" viewBox="0 0 10 10" aria-hidden="true"><path d="M5 1.2 9.2 8H.8z" fill="currentColor"/></svg>8.4%</span> vs previous day</p>
+          </article>
+          <article class="metric">
+            <p class="metric-label">Error rate</p>
+            <p class="metric-value" id="metric-errors">0.42<small>%</small></p>
+            <p class="metric-foot"><span class="trend is-good"><svg class="trend-icon" viewBox="0 0 10 10" aria-hidden="true"><path d="M5 8.8.8 2h8.4z" fill="currentColor"/></svg>0.09 pt</span> vs previous day</p>
+          </article>
+          <article class="metric">
+            <p class="metric-label">Median latency</p>
+            <p class="metric-value" id="metric-latency">38<small>ms</small></p>
+            <p class="metric-foot"><span class="trend is-bad"><svg class="trend-icon" viewBox="0 0 10 10" aria-hidden="true"><path d="M5 1.2 9.2 8H.8z" fill="currentColor"/></svg>3 ms</span> vs previous day</p>
+          </article>
+          <article class="metric">
+            <p class="metric-label">Uptime</p>
+            <p class="metric-value" id="metric-uptime">99.99<small>%</small></p>
+            <p class="metric-foot"><span class="trend is-good">Within target</span> 30-day window</p>
+          </article>
+        </section>
+
+        <div class="overview-grid">
+          <section class="card" aria-labelledby="chart-title">
+            <div class="card-head">
+              <div>
+                <h2 class="card-title" id="chart-title">Request volume</h2>
+                <p class="card-sub" id="chart-sub">Requests accepted per hour, UTC</p>
+              </div>
+              <div class="chart-filters" role="group" aria-label="Chart time range">
+                <div class="segmented">
+                  <button type="button" data-range="24h" aria-pressed="true">24h</button>
+                  <button type="button" data-range="7d" aria-pressed="false">7d</button>
+                  <button type="button" data-range="30d" aria-pressed="false">30d</button>
+                </div>
+              </div>
+            </div>
+            <div class="chart-wrap">
+              <svg class="chart-svg" id="traffic-chart" viewBox="0 0 640 240" role="img" aria-labelledby="chart-svg-title chart-svg-desc">
+                <title id="chart-svg-title">Request volume for the last 24 hours</title>
+                <desc id="chart-svg-desc">Line chart showing accepted and rejected requests over time.</desc>
+              </svg>
+              <div class="chart-foot">
+                <div class="chart-legend">
+                  <span>Accepted</span>
+                  <span class="is-capacity">Capacity guide</span>
+                </div>
+                <p class="chart-summary" id="chart-summary">Loading chart…</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="card" aria-labelledby="health-title">
+            <div class="card-head">
+              <div>
+                <h2 class="card-title" id="health-title">Edge health</h2>
+                <p class="card-sub">Five-minute probe samples</p>
+              </div>
+              <span class="badge is-warning">1 degraded</span>
+            </div>
+            <div class="health-list">
+              <div class="health-row">
+                <div>
+                  <p class="health-name">API gateway</p>
+                  <p class="health-detail">iad1 · us-east</p>
+                </div>
+                <div class="health-meta">
+                  <span class="health-latency">21 ms</span>
+                  <span class="health-state">Operational</span>
+                </div>
+              </div>
+              <div class="health-row">
+                <div>
+                  <p class="health-name">Authentication</p>
+                  <p class="health-detail">fra1 · eu-central</p>
+                </div>
+                <div class="health-meta">
+                  <span class="health-latency">34 ms</span>
+                  <span class="health-state">Operational</span>
+                </div>
+              </div>
+              <div class="health-row">
+                <div>
+                  <p class="health-name">Webhook delivery</p>
+                  <p class="health-detail">sfo1 · us-west</p>
+                </div>
+                <div class="health-meta">
+                  <span class="health-latency">186 ms</span>
+                  <span class="health-state is-warning">Degraded</span>
+                </div>
+              </div>
+              <div class="health-row">
+                <div>
+                  <p class="health-name">Usage rollups</p>
+                  <p class="health-detail">iad1 · us-east</p>
+                </div>
+                <div class="health-meta">
+                  <span class="health-latency">48 ms</span>
+                  <span class="health-state">Operational</span>
+                </div>
+              </div>
+            </div>
+            <div class="health-foot">
+              <p>Webhook delivery is above its 150 ms p95 target. No customer impact is expected at this time.</p>
+            </div>
+          </section>
+        </div>
+
+        <section class="card table-card" id="requests" aria-labelledby="requests-title">
+          <div class="card-head">
+            <div>
+              <h2 class="card-title" id="requests-title">Recent requests</h2>
+              <p class="card-sub">A rolling sample of API activity from the last hour</p>
+            </div>
+            <div class="table-toolbar">
+              <div class="search-field">
+                <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m15 15 5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                <label class="sr-only" for="request-search">Search requests</label>
+                <input class="input" id="request-search" type="search" placeholder="Search route or key" autocomplete="off">
+              </div>
+              <div class="field-inline">
+                <label for="status-filter">Status</label>
+                <select class="select select-sm" id="status-filter">
+                  <option value="all">All</option>
+                  <option value="ok">Successful</option>
+                  <option value="warn">Throttled</option>
+                  <option value="error">Failed</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="table-scroll" role="region" aria-label="Recent requests table" tabindex="0">
+            <table class="data-table">
+              <caption>Recent API requests, newest first</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Request key</th>
+                  <th scope="col">Route</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Duration</th>
+                  <th scope="col">Region</th>
+                  <th scope="col">When</th>
+                </tr>
+              </thead>
+              <tbody id="requests-body"></tbody>
+            </table>
+            <div class="table-empty" id="table-empty" data-empty hidden>
+              <p>No requests match those filters.</p>
+              <button class="text-button" id="clear-filters" type="button">Clear filters</button>
+            </div>
+          </div>
+
+          <div class="table-foot">
+            <span id="table-count" aria-live="polite">Showing 12 of 12 sampled requests</span>
+            <span class="refresh-meta" id="last-updated">Updated just now</span>
+          </div>
+        </section>
+
+        <p class="dashboard-footnote">Demo interface. Traffic, keys, and probe values are illustrative. In production, Meridian would connect these views to your observability pipeline and enforce role-based access.</p>
+      </main>
+    </div>
+  </div>
+
+  <div class="sidebar-backdrop" data-shell-backdrop></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="sr-region" id="announcer" aria-live="polite"></div>
+</body>
+</html>

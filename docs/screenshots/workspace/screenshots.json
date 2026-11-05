@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "generator": {
+    "name": "finishline-capture",
+    "version": "1.0.0"
+  },
+  "captured_at": "2026-11-05T02:21:26+00:00",
+  "target": "workspace",
+  "tool": {
+    "name": "chromium-headless",
+    "binary": "/usr/bin/chromium"
+  },
+  "viewports": [
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "shots": [
+    {
+      "id": "index-desktop",
+      "page": "index.html",
+      "title": "FINISHLINE — Interface quality workspace",
+      "url": "http://127.0.0.1:46141/index.html",
+      "viewport": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "path": "index-desktop.png",
+      "bytes": 137049,
+      "captured": true
+    },
+    {
+      "id": "index-mobile",
+      "page": "index.html",
+      "title": "FINISHLINE — Interface quality workspace",
+      "url": "http://127.0.0.1:46141/index.html",
+      "viewport": "mobile",
+      "width": 390,
+      "height": 844,
+      "path": "index-mobile.png",
+      "bytes": 53177,
+      "captured": true
+    }
+  ],
+  "skipped": [],
+  "limitations": [
+    "Viewport screenshots only; scrolling states, hover/focus states and interaction flows are not captured.",
+    "The page is rendered with a 3 second virtual-time budget; delayed async content may be missing.",
+    "Screenshots prove pixels existed, not WCAG compliance or usability."
+  ],
+  "base_url": "http://127.0.0.1:46141"
+}

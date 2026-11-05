@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#EDEFE8">
+  <title>FINISHLINE — Interface quality workspace</title>
+  <meta name="description" content="A local evidence workspace for FINISHLINE UI/UX audits. Every number comes from a real audit file.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/ibm-plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="app-shell">
+    <aside class="rail" id="rail">
+      <div class="rail-head">
+        <a class="wordmark" href="#/overview" aria-label="FINISHLINE overview">
+          <span class="mark" aria-hidden="true">FL</span>
+          <span class="wordmark-text">
+            <span class="wordmark-name">FINISHLINE</span>
+            <span class="wordmark-sub">Interface quality</span>
+          </span>
+        </a>
+        <button class="rail-toggle" id="rail-toggle" type="button" aria-expanded="false" aria-controls="rail-nav">
+          <span class="sr-only">Open navigation</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="square"/></svg>
+        </button>
+      </div>
+
+      <nav class="rail-nav" id="rail-nav" aria-label="Workspace">
+        <p class="nav-label">Audit</p>
+        <a class="nav-link" href="#/overview" data-route="overview">
+          <span class="nav-index">01</span><span>Overview</span>
+        </a>
+        <a class="nav-link" href="#/visual" data-route="visual">
+          <span class="nav-index">02</span><span>Visual audit</span>
+        </a>
+        <a class="nav-link" href="#/components" data-route="components">
+          <span class="nav-index">03</span><span>Component matrix</span>
+        </a>
+        <p class="nav-label nav-label-gap">System</p>
+        <a class="nav-link" href="#/design" data-route="design">
+          <span class="nav-index">04</span><span>Design system</span>
+        </a>
+        <a class="nav-link" href="#/repairs" data-route="repairs">
+          <span class="nav-index">05</span><span>Repair queue</span>
+        </a>
+        <a class="nav-link" href="#/verification" data-route="verification">
+          <span class="nav-index">06</span><span>Verification</span>
+        </a>
+      </nav>
+
+      <div class="rail-foot">
+        <div class="rail-project">
+          <p class="rail-project-label">Current audit</p>
+          <p class="rail-project-name" id="rail-project">Loading project…</p>
+          <p class="rail-project-meta" id="rail-project-meta">Reading local evidence</p>
+        </div>
+        <div class="rail-readiness" id="rail-readiness">
+          <span class="status-square is-neutral" aria-hidden="true"></span>
+          <span>Static run</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main" id="main" tabindex="-1">
+      <header class="topbar">
+        <p class="crumb"><span>Workspace</span><span class="crumb-sep" aria-hidden="true">/</span><span id="crumb">Overview</span></p>
+        <div class="topbar-actions">
+          <span class="data-badge" id="data-badge">Local evidence</span>
+          <button class="text-button" type="button" data-action="open-commands">Run commands</button>
+          <a class="text-button" href="data/audit.json" download="finishline-audit.json">Audit JSON</a>
+        </div>
+      </header>
+
+      <div id="app" class="page" aria-live="off">
+        <div class="loading-page" role="status" aria-label="Loading audit evidence">
+          <div class="skeleton skeleton-title"></div>
+          <div class="skeleton skeleton-line"></div>
+          <div class="skeleton skeleton-line is-short"></div>
+          <div class="skeleton-grid">
+            <div class="skeleton skeleton-block"></div>
+            <div class="skeleton skeleton-block"></div>
+            <div class="skeleton skeleton-block"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <dialog class="dialog inspector" id="component-dialog" aria-labelledby="component-dialog-title">
+    <div class="dialog-head">
+      <div>
+        <p class="eyebrow">Component record</p>
+        <h2 id="component-dialog-title">Component</h2>
+      </div>
+      <button class="icon-button" type="button" data-close-dialog aria-label="Close component record">
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.7"/></svg>
+      </button>
+    </div>
+    <div class="dialog-body" id="component-dialog-body"></div>
+  </dialog>
+
+  <dialog class="dialog lightbox" id="shot-dialog" aria-labelledby="shot-dialog-title">
+    <div class="dialog-head">
+      <div>
+        <p class="eyebrow">Captured evidence</p>
+        <h2 id="shot-dialog-title">Screenshot</h2>
+      </div>
+      <button class="icon-button" type="button" data-close-dialog aria-label="Close screenshot">
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.7"/></svg>
+      </button>
+    </div>
+    <div class="dialog-body lightbox-body" id="shot-dialog-body"></div>
+  </dialog>
+
+  <dialog class="dialog command-dialog" id="command-dialog" aria-labelledby="command-dialog-title">
+    <div class="dialog-head">
+      <div>
+        <p class="eyebrow">Reproduce this workspace</p>
+        <h2 id="command-dialog-title">Run commands</h2>
+      </div>
+      <button class="icon-button" type="button" data-close-dialog aria-label="Close commands">
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.7"/></svg>
+      </button>
+    </div>
+    <div class="dialog-body">
+      <p class="dialog-lede">Commands run from the FINISHLINE repository root. No hosted service is involved.</p>
+      <div class="command-list">
+        <div class="command-row">
+          <code>python3 scripts/audit.py &lt;project&gt; --out audit.json</code>
+          <button class="text-button" type="button" data-copy="python3 scripts/audit.py &lt;project&gt; --out audit.json">Copy</button>
+        </div>
+        <div class="command-row">
+          <code>python3 scripts/capture.py &lt;project&gt; --out screenshots</code>
+          <button class="text-button" type="button" data-copy="python3 scripts/capture.py &lt;project&gt; --out screenshots">Copy</button>
+        </div>
+        <div class="command-row">
+          <code>python3 scripts/workspace_data.py --audit audit.json --screenshots screenshots/screenshots.json</code>
+          <button class="text-button" type="button" data-copy="python3 scripts/workspace_data.py --audit audit.json --screenshots screenshots/screenshots.json">Copy</button>
+        </div>
+        <div class="command-row">
+          <code>python3 -m http.server 4173 --directory ui/workspace</code>
+          <button class="text-button" type="button" data-copy="python3 -m http.server 4173 --directory ui/workspace">Copy</button>
+        </div>
+      </div>
+      <p class="fine-print">The workspace is read-only. Triage state is stored in this browser only; it is not proof that a repair was made.</p>
+    </div>
+  </dialog>
+
+  <dialog class="dialog repair-dialog" id="repair-dialog" aria-labelledby="repair-dialog-title">
+    <div class="dialog-head">
+      <div>
+        <p class="eyebrow">Repair brief</p>
+        <h2 id="repair-dialog-title">Finding</h2>
+      </div>
+      <button class="icon-button" type="button" data-close-dialog aria-label="Close repair brief">
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.7"/></svg>
+      </button>
+    </div>
+    <div class="dialog-body" id="repair-dialog-body"></div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="sr-only" id="announcer" aria-live="polite"></div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Python ${{ matrix.python }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.11", "3.12", "3.13"]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+
+      - name: Run tests
+        run: python -m unittest discover -s tests -v
+
+      - name: Audit fixture
+        run: python scripts/audit.py tests/fixtures/defective-ui --out "$RUNNER_TEMP/fixture-audit.json" --quiet
+
+      - name: Validate package and schema
+        run: python scripts/validate.py --audit "$RUNNER_TEMP/fixture-audit.json" --strict
+
+      - name: Audit examples
+        run: python scripts/audit.py examples --out "$RUNNER_TEMP/examples-audit.json" --fail-on high
+
+      - name: Generate reports
+        run: |
+          python scripts/report.py "$RUNNER_TEMP/fixture-audit.json" --format md --out "$RUNNER_TEMP/report.md"
+          python scripts/report.py "$RUNNER_TEMP/fixture-audit.json" --format html --out "$RUNNER_TEMP/report.html"
+          test -s "$RUNNER_TEMP/report.md"
+          test -s "$RUNNER_TEMP/report.html"

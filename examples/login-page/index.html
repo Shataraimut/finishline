@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#103A2D">
+  <title>Sign in — Meridian</title>
+  <meta name="description" content="Sign in to the Meridian API operations console. A complete, static interface example.">
+  <link rel="icon" href="../shared/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../shared/fonts/ibm-plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../shared/fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../shared/meridian.css">
+  <script defer src="../shared/meridian.js"></script>
+  <script defer src="login.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to sign-in form</a>
+
+  <div class="login-page">
+    <aside class="login-brand" aria-label="About Meridian">
+      <a class="brand" href="../dashboard/" aria-label="Meridian dashboard">
+        <span class="brand-mark" aria-hidden="true">M</span>
+        <span>
+          <span class="brand-word">meridian</span>
+          <span class="brand-sub">API operations</span>
+        </span>
+      </a>
+
+      <div>
+        <p class="eyebrow">A calmer operations console</p>
+        <p class="brand-statement">Every request, accounted for.</p>
+        <p class="brand-note">Observe traffic, control access, and keep incidents from becoming mysteries. Meridian is the console for teams responsible for the quiet parts of the internet.</p>
+      </div>
+
+      <div>
+        <div class="brand-metrics">
+          <div class="brand-metric">
+            <span class="brand-metric-value">1.82M</span>
+            <span class="brand-metric-label">Requests observed daily</span>
+          </div>
+          <div class="brand-metric">
+            <span class="brand-metric-value">38ms</span>
+            <span class="brand-metric-label">Median edge overhead</span>
+          </div>
+          <div class="brand-metric">
+            <span class="brand-metric-value">90d</span>
+            <span class="brand-metric-label">Rollup retention</span>
+          </div>
+        </div>
+        <p class="brand-footnote">Static interface example · demo values only</p>
+      </div>
+    </aside>
+
+    <main class="login-main" id="main">
+      <section class="login-panel" aria-labelledby="login-title">
+        <div class="login-topline">
+          <span class="login-topline-label">Operations console / secure entry</span>
+          <span class="badge is-success">Systems nominal</span>
+        </div>
+
+        <h1 class="login-title" id="login-title">Sign in to Meridian</h1>
+        <p class="login-lede">Use your workspace credentials to review request health, manage keys, and respond to incidents.</p>
+
+        <div class="form-alert" id="login-alert" role="alert" hidden>
+          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M12 7.5v5.5M12 16.5v.1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <p></p>
+        </div>
+
+        <form class="login-form" id="login-form" novalidate>
+          <div class="field">
+            <label for="email">Work email</label>
+            <input class="input" id="email" name="email" type="email" inputmode="email" autocomplete="username" spellcheck="false" placeholder="you@company.com" required aria-describedby="email-error">
+            <p class="field-error" id="email-error" hidden></p>
+          </div>
+
+          <div class="field">
+            <label for="password">Password</label>
+            <div class="input-wrap">
+              <input class="input" id="password" name="password" type="password" autocomplete="current-password" minlength="8" placeholder="At least 8 characters" required aria-describedby="password-error">
+              <button class="field-action" id="reveal-password" type="button" aria-pressed="false" aria-label="Show password">Show</button>
+            </div>
+            <p class="field-error" id="password-error" hidden></p>
+          </div>
+
+          <div class="login-options">
+            <label class="checkbox-row" for="remember">
+              <input id="remember" name="remember" type="checkbox">
+              <span>Keep me signed in</span>
+            </label>
+            <button class="text-button" id="forgot-password" type="button" data-open-dialog="reset-dialog">Forgot password?</button>
+          </div>
+
+          <button class="button login-submit" id="login-submit" type="submit">Sign in</button>
+        </form>
+
+        <aside class="login-hint" aria-labelledby="demo-hint-title">
+          <h2 class="login-hint-title" id="demo-hint-title">Demo access</h2>
+          <p>Email <code>ops@meridian.dev</code><br>Password <code>meridian-demo</code></p>
+          <button class="text-button" id="fill-demo" type="button">Fill demo credentials</button>
+        </aside>
+
+        <p class="login-footnote">Static example. Credentials and data stay in this page. No authentication service is contacted.</p>
+      </section>
+    </main>
+  </div>
+
+  <dialog class="dialog" id="reset-dialog" aria-labelledby="reset-title">
+    <div class="dialog-head">
+      <div>
+        <p class="eyebrow">Account recovery</p>
+        <h2 id="reset-title">Reset your password</h2>
+      </div>
+      <button class="icon-button" type="button" data-close-dialog aria-label="Close password reset">
+        <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.7"/></svg>
+      </button>
+    </div>
+    <div class="dialog-body">
+      <p class="dialog-lede">Enter the address associated with your workspace. The real product would send a single-use recovery link.</p>
+      <div class="dialog-success" id="reset-success" role="status" tabindex="-1" hidden></div>
+      <form id="reset-form" novalidate>
+        <div class="field">
+          <label for="reset-email">Work email</label>
+          <input class="input" id="reset-email" name="reset-email" type="email" inputmode="email" autocomplete="email" placeholder="you@company.com" required aria-describedby="reset-email-error">
+          <p class="field-error" id="reset-email-error" hidden></p>
+        </div>
+        <div class="dialog-actions">
+          <button class="button is-quiet" type="button" data-close-dialog>Cancel</button>
+          <button class="button" id="reset-submit" type="submit">Send reset link</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="sr-region" id="announcer" aria-live="polite"></div>
+</body>
+</html>

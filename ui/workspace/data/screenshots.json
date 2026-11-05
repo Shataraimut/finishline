@@ -1,0 +1,54 @@
+{
+  "captured": true,
+  "count": 2,
+  "captured_at": "2026-11-04T09:55:26+00:00",
+  "target": "defective-ui",
+  "tool": {
+    "name": "chromium-headless",
+    "binary": "/usr/bin/chromium"
+  },
+  "viewports": [
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "shots": [
+    {
+      "id": "index-desktop",
+      "page": "index.html",
+      "title": "Meridian Console — Workspace settings",
+      "url": "http://127.0.0.1:35797/index.html",
+      "viewport": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "path": "shots/index-desktop.png",
+      "bytes": 148468,
+      "captured": true
+    },
+    {
+      "id": "index-mobile",
+      "page": "index.html",
+      "title": "Meridian Console — Workspace settings",
+      "url": "http://127.0.0.1:35797/index.html",
+      "viewport": "mobile",
+      "width": 390,
+      "height": 844,
+      "path": "shots/index-mobile.png",
+      "bytes": 77020,
+      "captured": true
+    }
+  ],
+  "skipped": [],
+  "limitations": [
+    "Viewport screenshots only; scrolling states, hover/focus states and interaction flows are not captured.",
+    "The page is rendered with a 3 second virtual-time budget; delayed async content may be missing.",
+    "Screenshots prove pixels existed, not WCAG compliance or usability."
+  ]
+}

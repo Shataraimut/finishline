@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Meridian Console — Workspace settings</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#main-content"><span class="brand-mark"></span> meridian</a>
+    <div class="topbar-actions">
+      <button class="icon-btn" type="button">
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="2"/></svg>
+      </button>
+      <img class="avatar" src="avatar.png" width="32" height="32">
+    </div>
+  </header>
+
+  <div class="shell">
+    <aside class="side">
+      <p class="side-label">Workspace</p>
+      <nav aria-label="Workspace">
+        <a href="#">Overview</a>
+        <a href="#">API keys</a>
+        <a href="#" aria-current="page">Settings</a>
+        <a href="#">Billing</a>
+      </nav>
+      <div class="side-foot">
+        <span class="status-dot"></span> All systems operational
+      </div>
+    </aside>
+
+    <main class="content" id="main-content">
+      <div class="intro">
+        <p class="kicker">Workspace / settings</p>
+        <h1>Workspace settings</h1>
+        <p class="lede">Seamlessly manage your workspace with cutting-edge controls and a best-in-class experience.</p>
+      </div>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Profile and alerts</h2>
+          <span class="muted-low">Updated 4 minutes ago</span>
+        </div>
+        <form id="settings-form">
+          <div class="field-row">
+            <label for="workspace-name">Workspace name</label>
+            <input id="workspace-name" name="workspace" value="Northstar Labs">
+          </div>
+          <div class="field-row">
+            <span class="field-label">Billing email</span>
+            <input type="email" name="email" value="ops@northstar.dev">
+          </div>
+          <div class="field-row">
+            <span class="field-label">API token</span>
+            <div class="secret-row">
+              <input type="password" name="api_token" value="mrd_live_84c1d0e8">
+              <button class="icon-btn" type="button">
+                <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6-10-6-10-6Z" stroke="currentColor" fill="none" stroke-width="1.6"/><circle cx="12" cy="12" r="2.6" stroke="currentColor" fill="none" stroke-width="1.6"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="field-row switch-row">
+            <div>
+              <span class="field-label">Email alerts</span>
+              <p class="hint">Get an email when a key is used from a new location.</p>
+            </div>
+            <div class="toggle" role="switch" aria-checked="true" tabindex="0" aria-label="Email alerts">
+              <span class="toggle-knob"></span>
+            </div>
+          </div>
+
+          <div class="field-row switch-row">
+            <div>
+              <span class="field-label">Weekly usage digest</span>
+              <p class="hint">A Monday summary of requests, errors and spend.</p>
+            </div>
+            <div class="toggle" role="switch" aria-checked="false" tabindex="0" aria-label="Weekly usage digest">
+              <span class="toggle-knob"></span>
+            </div>
+          </div>
+
+          <div class="actions">
+            <button class="save" type="submit">Save changes</button>
+            <button class="ghost" type="button" disabled>Reset</button>
+            <button class="ghost" type="button">Cancel</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Recent activity</h2>
+          <div class="dropdown" role="combobox" aria-expanded="false" aria-label="Filter activity">
+            <span>Last 7 days</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+        </div>
+        <table>
+          <thead><tr><th>Event</th><th>Key</th><th>When</th></tr></thead>
+          <tbody>
+            <tr><td>Key created</td><td><code>mrd_live_…</code></td><td>Today, 09:14</td></tr>
+            <tr><td>Key rotated</td><td><code>mrd_test_…</code></td><td>Yesterday</td></tr>
+          </tbody>
+        </table>
+        <p class="hint">Showing the latest events. <a href="https://docs.example.com/activity" target="_blank">View full log</a></p>
+      </section>
+
+      <section class="danger-zone">
+        <div>
+          <h2>Delete workspace</h2>
+          <p class="hint">Permanently remove every key, log and member.</p>
+        </div>
+        <button class="delete" type="button">Delete workspace</button>
+      </section>
+
+      <p class="docs-link" role="link" tabindex="0">Read the migration guide</p>
+    </main>
+  </div>
+
+  <div class="toast" id="toast">Settings saved</div>
+  <script src="app.js"></script>
+</body>
+</html>
